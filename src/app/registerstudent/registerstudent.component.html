@@ -1,0 +1,87 @@
+<div class="col-md-6 col-md-offset-3">
+	<h2>Register</h2>
+	<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm"
+		novalidate>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+			<label for="name">Nombre</label> <input type="text"
+				class="form-control" name="name" [(ngModel)]="model.name"
+				#firstName="ngModel" required />
+			<div *ngIf="f.submitted && !name.valid" class="help-block">First
+				Name is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !lastName.valid }">
+			<label for="lastName">Apellido</label> <input type="text"
+				class="form-control" name="lastName" [(ngModel)]="model.lastName"
+				#lastName="ngModel" required />
+			<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last
+				Name is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !email.valid }">
+			<label for="email">Email</label> <input type="text"
+				class="form-control" name="email" [(ngModel)]="model.email"
+				#email="ngModel" required />
+			<div *ngIf="f.submitted && !email.valid" class="help-block">Email
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !universidad.valid }">
+			<label for="universidad">Universidad</label> <input type="text"
+				class="form-control" name="universidad"
+				[(ngModel)]="model.universidad" #universidad="ngModel" required />
+			<div *ngIf="f.submitted && !universidad.valid" class="help-block">Universidad
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !carrera.valid }">
+			<label for="carrera">Carrera</label> <input type="text"
+				class="form-control" name="carrera" [(ngModel)]="model.carrera"
+				#carrera="ngModel" required />
+			<div *ngIf="f.submitted && !carrera.valid" class="help-block">Carrera
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !password.valid }">
+			<label for="password">Contraseña</label> <input type="password"
+				class="form-control" name="password" [(ngModel)]="model.password"
+				#password="ngModel" required />
+			<div *ngIf="f.submitted && !password.valid" class="help-block">Password
+				is required</div>
+		</div>
+		<h3>Informacion Financiera</h3>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !accountOwner.valid }">
+			<label for="accountOwner">Titular Cuenta</label> <input type="text"
+				class="form-control" name="accountOwner"
+				[(ngModel)]="model.accountOwner" #accountOwner="ngModel" required />
+			<div *ngIf="f.submitted && !accountOwner.valid" class="help-block">Titular
+				Cuenta is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !banco.valid }">
+			<label for="lastName">Banco</label> <input type="text"
+				class="form-control" name="banco" [(ngModel)]="model.banco"
+				#banco="ngModel" required />
+			<div *ngIf="f.submitted && !banco.valid" class="help-block">Banco
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !bankWire.valid }">
+			<label for="email">Numero de Cuenta</label> <input type="text"
+				class="form-control" name="bankWire" [(ngModel)]="model.bankWire"
+				#bankWire="ngModel" required />
+			<div *ngIf="f.submitted && !bankWire.valid" class="help-block">Numero
+				de Cuenta is required</div>
+		</div>
+
+
+		<div class="form-group">
+			<button [disabled]="loading" class="btn btn-primary">Register</button>
+			<img *ngIf="loading"
+				src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			<a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+		</div>
+	</form>
+</div>
