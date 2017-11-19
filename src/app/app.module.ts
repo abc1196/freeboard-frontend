@@ -14,7 +14,13 @@ import {LogincompanyComponent} from './logincompany/logincompany.component';
 import {RegisterstudentComponent} from './registerstudent/registerstudent.component';
 import {AlertService} from './services/alert.service';
 import {AuthenticationService} from './services/authentication.service';
-import { AppRoutingModule } from './/app-routing.module';
+import {AppRoutingModule} from './/app-routing.module';
+import {RegistercompanyComponent} from './registercompany/registercompany.component';
+import {CompanyService} from './services/company.service';
+import {StudentService} from './services/student.service';
+import {TextMaskModule} from 'angular2-text-mask';
+import { HomeComponent } from './home/home.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -25,17 +31,23 @@ import { AppRoutingModule } from './/app-routing.module';
     AlertComponent,
     LoginstudentComponent,
     LogincompanyComponent,
-    RegisterstudentComponent
+    RegisterstudentComponent,
+    RegistercompanyComponent,
+    HomeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TextMaskModule
   ],
   providers: [AuthGuard,
     AlertService,
-    AuthenticationService],
+    AuthenticationService,
+    CompanyService,
+    StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

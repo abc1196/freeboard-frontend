@@ -1,15 +1,28 @@
+import {HomeComponent} from './home/home.component';
+import {LogincompanyComponent} from './logincompany/logincompany.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {LoginstudentComponent} from './loginstudent/loginstudent.component';
+import {RegistercompanyComponent} from './registercompany/registercompany.component';
 import {RegisterstudentComponent} from './registerstudent/registerstudent.component';
+import {WelcomeComponent} from './welcome/welcome.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'login', component: LoginstudentComponent},
-  {path: 'register', component: RegisterstudentComponent},
-
+  {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
+  {
+    path: 'home', component: HomeComponent, children: [
+      {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+      {path: 'welcome', component: WelcomeComponent},
+      {path: 'loginstudent', component: LoginstudentComponent},
+      {path: 'registerstudent', component: RegisterstudentComponent},
+      {path: 'logincompany', component: LogincompanyComponent},
+      {path: 'registercompany', component: RegistercompanyComponent},
+      // otherwise redirect to welcome
+      {path: '**', redirectTo: ''}
+    ]
+  },
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

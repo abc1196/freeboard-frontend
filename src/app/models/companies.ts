@@ -4,4 +4,5 @@ export class Companies {
    phone: string;
    address: string;
    contactPerson: string;
+   password: string;
 }
