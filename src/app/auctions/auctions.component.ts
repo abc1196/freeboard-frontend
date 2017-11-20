@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import {Companies} from '../models/companies';
+import {Auctions} from '../models/auctions';
 @Component({
   selector: 'app-auctions',
   templateUrl: './auctions.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AuctionsComponent implements OnInit {
-
+  auction: Auctions;
   constructor() { }
 
   ngOnInit() {

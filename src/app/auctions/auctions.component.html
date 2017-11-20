@@ -3,18 +3,19 @@
 		<table class="table table-striped custab">
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Date</th>
-					<th>Actions</th>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>Fecha</th>
+					<th>Acción</th>
 				</tr>
 			</thead>
-			<tr >
+			<tr *ngFor="let auction of auctions">
 
-				<td>{{auction.id}}</td>
-				<td>{{ auction.name }}</td>
-				<td>{{ auction.type }}</td>
-				<td>{{ auction.price }}</td>
+				<td><a routerLink="['../auctiondetail/{{auction.id}}']">{{auction.id}}</a></td>
+				<td>{{auction.name}}</td>
+				<td>{{auction.type}}</td>
+				<td>{{auction.price}}</td>
 				<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span
 						class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#"
 					class="btn btn-danger btn-xs"><span
