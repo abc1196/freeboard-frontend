@@ -9,6 +9,7 @@ import {OffersComponent} from './offers/offers.component';
 import {RegistercompanyComponent} from './registercompany/registercompany.component';
 import {RegisterstudentComponent} from './registerstudent/registerstudent.component';
 import {SearchauctionsComponent} from './searchauctions/searchauctions.component';
+import {StudentauctiondetailComponent} from './studentauctiondetail/studentauctiondetail.component';
 import {StudentdetailsComponent} from './studentdetails/studentdetails.component';
 import {StudentofferdetailComponent} from './studentofferdetail/studentofferdetail.component';
 import {StudentprofileComponent} from './studentprofile/studentprofile.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
       {path: 'studentdetails', component: StudentdetailsComponent},
       {path: 'searchauctions', component: SearchauctionsComponent},
       {path: 'myoffers', component: OffersComponent},
-      {path: 'myoffers/:id', component: StudentofferdetailComponent}
+      {path: 'myoffers/:id', component: StudentofferdetailComponent},
+      {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
     ]
   },
   // otherwise redirect to home

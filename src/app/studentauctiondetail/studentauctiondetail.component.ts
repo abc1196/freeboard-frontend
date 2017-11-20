@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-studentauctiondetail',
@@ -7,10 +7,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class StudentauctiondetailComponent implements OnInit {
-
-  constructor() { }
+  model: any = {};
+  loading = false;
+  returnUrl: string;
+  constructor() {}
 
   ngOnInit() {
+  }
+
+  addOffer() {
+
   }
 
 }
