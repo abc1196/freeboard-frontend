@@ -15,6 +15,11 @@ import {StudentofferdetailComponent} from './studentofferdetail/studentofferdeta
 import {StudentprofileComponent} from './studentprofile/studentprofile.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 
+import {CompanyauctiondetailComponent} from './companyauctiondetail/companyauctiondetail.component';
+import {CompanydetailComponent} from './companydetail/companydetail.component';
+import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
+import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
+import { AuctionsComponent } from './auctions/auctions.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
   {
@@ -37,6 +42,12 @@ const routes: Routes = [
       {path: 'myoffers/:id', component: StudentofferdetailComponent},
       {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
     ]
+  }, {
+    path: 'company', component: CompanyprofileComponent, children: [
+      {path: 'companydetails', component: CompanydetailComponent},
+      {path: 'myauctions', component: AuctionsComponent},
+      {path: 'offerdetail', component: CompanyofferdetailComponent},
+      {path: 'myauctions/:id', component: CompanyauctiondetailComponent}    ]
   },
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
