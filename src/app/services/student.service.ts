@@ -9,7 +9,7 @@ export class StudentService {
 
 
   signUpStudent(students: Students) {
-        return this.http.post('http://localhost:8080/_ah/api/students/v1/signup/student', students).map((response: Response) => response.json());
+        return this.http.post('https://cloudsql-dot-cloud-computing-freeboard.appspot.com/_ah/api/students/v1/signup/student', students).map((response: Response) => response.json());
     }
 
     // private helper methods

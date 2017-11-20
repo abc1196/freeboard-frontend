@@ -6,7 +6,6 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 
 import {RegisterComponent} from './register/register.component';
-import {LoginComponent} from './login/login.component';
 import {AlertComponent} from './alert/alert.component';
 import {AuthGuard} from './guards/auth.guard';
 import {LoginstudentComponent} from './loginstudent/loginstudent.component';
@@ -27,7 +26,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent,
     AlertComponent,
     LoginstudentComponent,
     LogincompanyComponent,
