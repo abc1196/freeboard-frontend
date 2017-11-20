@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AlertService} from '../services/alert.service';
 import {AuthenticationService} from '../services/authentication.service';
@@ -28,7 +28,7 @@ export class LogincompanyComponent implements OnInit {
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/registercompany';
+    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/company';
   }
 
   loginCompany() {
@@ -38,6 +38,7 @@ export class LogincompanyComponent implements OnInit {
       data => {
         this.alertService.success(data.value);
         this.loading = false;
+        this.router.navigate(['/company']);
       },
       (err: HttpErrorResponse) => {
         // The backend returned an unsuccessful response code.

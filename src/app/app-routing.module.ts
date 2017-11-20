@@ -1,3 +1,4 @@
+import {AuthGuard} from './guards/auth.guard';
 import {HomeComponent} from './home/home.component';
 import {LogincompanyComponent} from './logincompany/logincompany.component';
 import {NgModule} from '@angular/core';
@@ -30,7 +31,8 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'student', component: StudentprofileComponent, children: [
+    path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
+      {path: '', redirectTo: '/student/studentdetails', pathMatch: 'full'},
       {path: 'studentdetails', component: StudentdetailsComponent},
       {path: 'searchauctions', component: SearchauctionsComponent},
       {path: 'myoffers', component: OffersComponent},

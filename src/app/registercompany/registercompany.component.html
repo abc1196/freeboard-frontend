@@ -20,7 +20,7 @@
 				is required</div>
 		</div>
 		<div class="form-group"
-			[ngClass]="{ 'has-error': f.submitted && phone.valid }">
+			[ngClass]="{ 'has-error': f.submitted && !phone.valid }">
 			<label for="phone">Telefono</label><input type="text"
 				class="form-control" name="phone" [(ngModel)]="model.phone"
 				#phone="ngModel" required placeholder="+COUNTRY 1234567890"

@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {AuthenticationService} from '../services/authentication.service';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-studentprofile',
@@ -8,9 +10,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class StudentprofileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['']);
   }
 
 }

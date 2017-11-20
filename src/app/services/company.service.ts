@@ -10,7 +10,7 @@ export class CompanyService {
   constructor(private http: Http) {}
 
   signUpCompany(companies: Companies) {
-    return this.http.post('https://cloudsql-dot-cloud-computing-freeboard.appspot.com/_ah/api/companies/v1/signup/company', companies).map((response: Response) => response.json());
+    return this.http.post('http://localhost:8080/_ah/api/companies/v1/signup/company', companies).map((response: Response) => response.json());
   }
 
   // private helper methods

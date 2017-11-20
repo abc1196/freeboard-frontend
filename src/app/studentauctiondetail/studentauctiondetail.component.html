@@ -3,8 +3,8 @@
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && addOffer()" #f="ngForm" novalidate>
 		<div class="row">
+			<h3 class="form-register-heading">Detalles Subasta</h3>
 			<div class="col-sm-6">
-				<h3 class="form-register-heading">Detalles Subasta</h3>
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !email.valid }">
 					<label for="email">Nombre</label> <input type="text"

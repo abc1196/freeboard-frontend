@@ -1,22 +1,17 @@
 <div class="wrapper row">
-
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+		<app-alert></app-alert>
 		<div class="row">
 			<div class="col-sm-6">
 				<h3 class="form-register-heading">Informacion Personal</h3>
-				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !email.valid }">
-					<label for="email">Email</label> <input type="text"
-						class="form-control" name="email" [(ngModel)]="model.email"
-						#email="ngModel" required />
-					<div *ngIf="f.submitted && !email.valid" class="help-block">Email
-						is required</div>
+				<div class="form-group">
+					<label for="email">Email </label><span> {{students?.email}} </span>
 				</div>
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 					<label for="name">Nombre</label> <input type="text"
-						class="form-control" name="name" [(ngModel)]="model.name"
+						class="form-control" name="name" [(ngModel)]="students.name"
 						#name="ngModel" required />
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Name is required</div>
@@ -24,15 +19,15 @@
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
 					<label for="lastname">Apellido</label> <input type="text"
-						class="form-control" name="lastname" [(ngModel)]="model.lastname"
-						#lastname="ngModel" required />
+						class="form-control" name="lastname"
+						[(ngModel)]="students.lastname" #lastname="ngModel" required />
 					<div *ngIf="f.submitted && !lastname.valid" class="help-block">Last
 						Name is required</div>
 				</div>
 				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && phone.valid }">
+					[ngClass]="{ 'has-error': f.submitted && !phone.valid }">
 					<label for="phone">Telefono</label><input type="text"
-						class="form-control" name="phone" [(ngModel)]="model.phone"
+						class="form-control" name="phone" [(ngModel)]="students.phone"
 						#phone="ngModel" required placeholder="+COUNTRY 1234567890"
 						pattern="(\+[0-9]{1,5}) ([1-9][0-9]{9})" />
 					<div *ngIf="f.submitted && !phone.valid" class="help-block">Telefono
@@ -42,7 +37,7 @@
 					[ngClass]="{ 'has-error': f.submitted && !university.valid }">
 					<label for="university">Universidad</label> <input type="text"
 						class="form-control" name="university"
-						[(ngModel)]="model.university" #university="ngModel" required />
+						[(ngModel)]="students.university" #university="ngModel" required />
 					<div *ngIf="f.submitted && !university.valid" class="help-block">Universidad
 						is required</div>
 				</div>
@@ -59,14 +54,15 @@
 					[ngClass]="{ 'has-error': f.submitted && !accountOwner.valid }">
 					<label for="accountOwner">Titular Cuenta</label> <input type="text"
 						class="form-control" name="accountOwner"
-						[(ngModel)]="model.accountOwner" #accountOwner="ngModel" required />
+						[(ngModel)]="students.accountOwner" #accountOwner="ngModel"
+						required />
 					<div *ngIf="f.submitted && !accountOwner.valid" class="help-block">Titular
 						Cuenta is required</div>
 				</div>
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !bank.valid }">
 					<label for="bank">Banco</label> <input type="text"
-						class="form-control" name="bank" [(ngModel)]="model.bank"
+						class="form-control" name="bank" [(ngModel)]="students.bank"
 						#bank="ngModel" required />
 					<div *ngIf="f.submitted && !bank.valid" class="help-block">Banco
 						is required</div>
@@ -74,8 +70,8 @@
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !bankWire.valid }">
 					<label for="bankWire">Numero de Cuenta</label> <input type="number"
-						class="form-control" name="bankWire" [(ngModel)]="model.bankWire"
-						#bankWire="ngModel" required />
+						class="form-control" name="bankWire"
+						[(ngModel)]="students.bankWire" #bankWire="ngModel" required />
 					<div *ngIf="f.submitted && !bankWire.valid" class="help-block">Numero
 						de Cuenta is required</div>
 				</div>
@@ -83,7 +79,7 @@
 					[ngClass]="{ 'has-error': f.submitted && !accountType.valid }">
 					<label for="accountType">Tipo de Cuenta</label> <select
 						class="form-control" name="accountType"
-						[(ngModel)]="model.accountType" #accountType="ngModel" required>
+						[(ngModel)]="students.accountType" #accountType="ngModel" required>
 						<option value="Ahorros">Ahorros</option>
 						<option value="Corriente">Corriente</option>
 					</select>

@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AlertService} from '../services/alert.service';
 import {AuthenticationService} from '../services/authentication.service';
+import {StudentService} from '../services/student.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
@@ -21,14 +22,14 @@ export class LoginstudentComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService) {}
+    private alertService: AlertService, private studentservice: StudentService) {}
 
   ngOnInit() {
     // reset login status
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/registerstudent';
+    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/student';
   }
 
   loginStudent() {
@@ -36,8 +37,9 @@ export class LoginstudentComponent implements OnInit {
     this.authenticationService.loginStudent(this.model.email, this.model.password)
       .subscribe(
       data => {
-        this.alertService.success(data.value);
+        this.alertService.success('Login Succesfull');
         this.loading = false;
+        this.router.navigate(['/student']);
       },
       (err: HttpErrorResponse) => {
         // The backend returned an unsuccessful response code.
