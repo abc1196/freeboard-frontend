@@ -26,6 +26,11 @@ import { SearchauctionsComponent } from './searchauctions/searchauctions.compone
 import { OffersComponent } from './offers/offers.component';
 import { StudentofferdetailComponent } from './studentofferdetail/studentofferdetail.component';
 import { StudentauctiondetailComponent } from './studentauctiondetail/studentauctiondetail.component';
+import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
+import { CompanyauctiondetailComponent } from './companyauctiondetail/companyauctiondetail.component';
+import { CompanydetailComponent } from './companydetail/companydetail.component';
+import { CompanyofferdetailComponent } from './companyofferdetail/companyofferdetail.component';
+import { AuctionsComponent } from './auctions/auctions.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { StudentauctiondetailComponent } from './studentauctiondetail/studentauc
     SearchauctionsComponent,
     OffersComponent,
     StudentofferdetailComponent,
-    StudentauctiondetailComponent
+    StudentauctiondetailComponent,
+    CompanyprofileComponent,
+    CompanyauctiondetailComponent,
+    CompanydetailComponent,
+    CompanyofferdetailComponent,
+    AuctionsComponent
   ],
   imports: [
     BrowserModule,
