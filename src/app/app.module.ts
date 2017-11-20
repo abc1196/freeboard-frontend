@@ -20,7 +20,12 @@ import {StudentService} from './services/student.service';
 import {TextMaskModule} from 'angular2-text-mask';
 import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-
+import { StudentprofileComponent } from './studentprofile/studentprofile.component';
+import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
+import { SearchauctionsComponent } from './searchauctions/searchauctions.component';
+import { OffersComponent } from './offers/offers.component';
+import { StudentofferdetailComponent } from './studentofferdetail/studentofferdetail.component';
+import { StudentauctiondetailComponent } from './studentauctiondetail/studentauctiondetail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,13 @@ import { WelcomeComponent } from './welcome/welcome.component';
     RegisterstudentComponent,
     RegistercompanyComponent,
     HomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    StudentprofileComponent,
+    StudentdetailsComponent,
+    SearchauctionsComponent,
+    OffersComponent,
+    StudentofferdetailComponent,
+    StudentauctiondetailComponent
   ],
   imports: [
     BrowserModule,

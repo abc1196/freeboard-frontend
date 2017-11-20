@@ -5,8 +5,13 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {LoginstudentComponent} from './loginstudent/loginstudent.component';
+import {OffersComponent} from './offers/offers.component';
 import {RegistercompanyComponent} from './registercompany/registercompany.component';
 import {RegisterstudentComponent} from './registerstudent/registerstudent.component';
+import {SearchauctionsComponent} from './searchauctions/searchauctions.component';
+import {StudentdetailsComponent} from './studentdetails/studentdetails.component';
+import {StudentofferdetailComponent} from './studentofferdetail/studentofferdetail.component';
+import {StudentprofileComponent} from './studentprofile/studentprofile.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -21,6 +26,14 @@ const routes: Routes = [
       {path: 'registercompany', component: RegistercompanyComponent},
       // otherwise redirect to welcome
       {path: '**', redirectTo: ''}
+    ]
+  },
+  {
+    path: 'student', component: StudentprofileComponent, children: [
+      {path: 'studentdetails', component: StudentdetailsComponent},
+      {path: 'searchauctions', component: SearchauctionsComponent},
+      {path: 'myoffers', component: OffersComponent},
+      {path: 'myoffers/:id', component: StudentofferdetailComponent}
     ]
   },
   // otherwise redirect to home
