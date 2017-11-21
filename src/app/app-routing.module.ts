@@ -21,6 +21,7 @@ import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
 import { AuctionsComponent } from './auctions/auctions.component';
+import { PayformComponent } from './payform/payform.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       {path: 'registerstudent', component: RegisterstudentComponent},
       {path: 'logincompany', component: LogincompanyComponent},
       {path: 'registercompany', component: RegistercompanyComponent},
+      {path: 'payform', component: PayformComponent},
       // otherwise redirect to welcome
       {path: '**', redirectTo: ''}
     ]
