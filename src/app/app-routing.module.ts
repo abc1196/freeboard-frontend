@@ -20,7 +20,7 @@ import {CompanyauctiondetailComponent} from './companyauctiondetail/companyaucti
 import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
-import { AuctionsComponent } from './auctions/auctions.component';
+import {AuctionsComponent} from './auctions/auctions.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
+    path: 'student', component: StudentprofileComponent, children: [
       {path: '', redirectTo: '/student/studentdetails', pathMatch: 'full'},
       {path: 'studentdetails', component: StudentdetailsComponent},
       {path: 'searchauctions', component: SearchauctionsComponent},
@@ -46,10 +46,11 @@ const routes: Routes = [
     ]
   }, {
     path: 'company', component: CompanyprofileComponent, children: [
+      {path: '', redirectTo: '/company/companydetails', pathMatch: 'full'},
       {path: 'companydetails', component: CompanydetailComponent},
       {path: 'myauctions', component: AuctionsComponent},
       {path: 'offerdetail', component: CompanyofferdetailComponent},
-      {path: 'auctiondetail/:id', component: CompanyauctiondetailComponent}    ]
+      {path: 'auctiondetail/:id', component: CompanyauctiondetailComponent}]
   },
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
