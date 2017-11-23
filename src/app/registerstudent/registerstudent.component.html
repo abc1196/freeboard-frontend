@@ -1,0 +1,98 @@
+<div class="wrapper">
+
+	<form class="form-register" name="form"
+		(ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+		<h2 class="form-register-heading">Registro</h2>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+			<label for="name">Nombre</label> <input type="text"
+				class="form-control" name="name" [(ngModel)]="model.name"
+				#name="ngModel" required />
+			<div *ngIf="f.submitted && !name.valid" class="help-block">First
+				Name is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
+			<label for="lastname">Apellido</label> <input type="text"
+				class="form-control" name="lastname" [(ngModel)]="model.lastname"
+				#lastname="ngModel" required />
+			<div *ngIf="f.submitted && !lastname.valid" class="help-block">Last
+				Name is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !email.valid }">
+			<label for="email">Email</label> <input type="text"
+				class="form-control" name="email" [(ngModel)]="model.email"
+				#email="ngModel" required />
+			<div *ngIf="f.submitted && !email.valid" class="help-block">Email
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !phone.valid }">
+			<label for="phone">Telefono</label><input type="text"
+				class="form-control" name="phone" [(ngModel)]="model.phone"
+				#phone="ngModel" required placeholder="+COUNTRY 1234567890"
+				pattern="(\+[0-9]{1,5}) ([1-9][0-9]{9})" />
+			<div *ngIf="f.submitted && !phone.valid" class="help-block">Telefono
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !university.valid }">
+			<label for="university">Universidad</label> <input type="text"
+				class="form-control" name="university"
+				[(ngModel)]="model.university" #university="ngModel" required />
+			<div *ngIf="f.submitted && !university.valid" class="help-block">Universidad
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !password.valid }">
+			<label for="password">Contraseña</label> <input type="password"
+				class="form-control" name="password" pattern=".{8,}"
+				[(ngModel)]="model.password" #password="ngModel" required />
+			<div *ngIf="f.submitted && !password.valid" class="help-block">Password
+				must be at least 8 characters</div>
+		</div>
+		<h3>Informacion Bancaria</h3>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !accountOwner.valid }">
+			<label for="accountOwner">Titular Cuenta</label> <input type="text"
+				class="form-control" name="accountOwner"
+				[(ngModel)]="model.accountOwner" #accountOwner="ngModel" required />
+			<div *ngIf="f.submitted && !accountOwner.valid" class="help-block">Titular
+				Cuenta is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !bank.valid }">
+			<label for="bank">Banco</label> <input type="text"
+				class="form-control" name="bank" [(ngModel)]="model.bank"
+				#bank="ngModel" required />
+			<div *ngIf="f.submitted && !bank.valid" class="help-block">Banco
+				is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !bankWire.valid }">
+			<label for="bankWire">Numero de Cuenta</label> <input type="number"
+				class="form-control" name="bankWire" [(ngModel)]="model.bankWire"
+				#bankWire="ngModel" required />
+			<div *ngIf="f.submitted && !bankWire.valid" class="help-block">Numero
+				de Cuenta is required</div>
+		</div>
+		<div class="form-group"
+			[ngClass]="{ 'has-error': f.submitted && !accountType.valid }">
+			<label for="accountType">Tipo de Cuenta</label> <select
+				class="form-control" name="accountType"
+				[(ngModel)]="model.accountType" #accountType="ngModel" required>
+				<option value="Ahorros">Ahorros</option>
+				<option value="Corriente">Corriente</option>
+			</select>
+			<div *ngIf="f.submitted && !accountType.valid" class="help-block">Tipo
+				de Cuenta is required</div>
+		</div>
+		<div class="form-group">
+			<button [disabled]="loading" class="btn btn-primary">Register</button>
+			<img *ngIf="loading"
+				src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			<a [routerLink]="['../loginstudent']" class="btn btn-link">Cancel</a>
+		</div>
+	</form>
+</div>
