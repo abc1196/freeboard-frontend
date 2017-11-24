@@ -1,8 +1,9 @@
 export class Offers {
+  idoffers: string;
   price: string;
-  student: string;
-  phone: string;
-  address: string;
-  paid: string;
+  paid: boolean;
+  payHash: string;
   state: string;
+  created: string;
+  updated: string;
 }

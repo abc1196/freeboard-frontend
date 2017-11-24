@@ -20,7 +20,7 @@ import {CompanyauctiondetailComponent} from './companyauctiondetail/companyaucti
 import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
-import { AuctionsComponent } from './auctions/auctions.component';
+import {AuctionsComponent} from './auctions/auctions.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
       {path: 'studentdetails', component: StudentdetailsComponent},
       {path: 'searchauctions', component: SearchauctionsComponent},
       {path: 'myoffers', component: OffersComponent},
-      {path: 'myoffers/:id', component: StudentofferdetailComponent},
+      {path: 'myoffers/:idoffers', component: StudentofferdetailComponent},
       {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
     ]
   }, {
@@ -49,7 +49,7 @@ const routes: Routes = [
       {path: 'companydetails', component: CompanydetailComponent},
       {path: 'myauctions', component: AuctionsComponent},
       {path: 'offerdetail', component: CompanyofferdetailComponent},
-      {path: 'auctiondetail/:id', component: CompanyauctiondetailComponent}    ]
+      {path: 'auctiondetail/:id', component: CompanyauctiondetailComponent}]
   },
   // otherwise redirect to home
   {path: '**', redirectTo: ''}

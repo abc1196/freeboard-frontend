@@ -39,13 +39,10 @@ export class LogincompanyComponent implements OnInit {
         this.alertService.success(data.value);
         this.loading = false;
         this.router.navigate(['/company']);
-      },
-      (err: HttpErrorResponse) => {
-        // The backend returned an unsuccessful response code.
-        // The response body may contain clues as to what went wrong,
-        this.alertService.error(`Backend returned code ${err.status}, body was: ${err}`);
-        this.loading = false;
-      }
+      }, error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                }
       );
   }
 

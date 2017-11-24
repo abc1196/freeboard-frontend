@@ -1,6 +1,12 @@
 export class Auctions {
-  date: string;
+  idauctions: string;
   name: string;
+  type: string;
+  size: string;
+  mainColor: string;
+  secundaryColor: string;
+  description: string;
+  time: string;
   price: string;
-  id: string;
+  created: string;
 }
