@@ -34,6 +34,7 @@ import { CompanyofferdetailComponent } from './companyofferdetail/companyofferde
 import { AuctionsComponent } from './auctions/auctions.component';
 import { PayresponsepageComponent } from './payresponsepage/payresponsepage.component';
 import { PayformComponent } from './payform/payform.component';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { PayformComponent } from './payform/payform.component';
     CompanyofferdetailComponent,
     AuctionsComponent,
     PayresponsepageComponent,
-    PayformComponent
+    PayformComponent,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,

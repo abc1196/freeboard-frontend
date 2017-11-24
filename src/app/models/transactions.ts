@@ -19,5 +19,4 @@ export class Transactions {
     created: string;
     updated: string;
     offers_idoffers: string;
-
   }

@@ -20,12 +20,8 @@ import {CompanyauctiondetailComponent} from './companyauctiondetail/companyaucti
 import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
-<<<<<<< HEAD
 import {AuctionsComponent} from './auctions/auctions.component';
-=======
-import { AuctionsComponent } from './auctions/auctions.component';
-import { PayformComponent } from './payform/payform.component';
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
+import {PayformComponent} from './payform/payform.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
   {
