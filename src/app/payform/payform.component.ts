@@ -11,7 +11,6 @@ import { Observable } from 'rxjs/Observable';
 import { ObservableInput } from 'rxjs/Observable';
 import { Form } from '@angular/forms';
 import { RequestArgs } from '@angular/http/src/interfaces';
-import { get } from 'https';
 
 @Component({
   moduleId: module.id,
@@ -35,15 +34,6 @@ export class PayformComponent implements OnInit {
 
   ngOnInit() {
 
-  }
-
-  payform(): Observable<Response> {
-
-    this.loading = true;
-    // this.http.post(this.returnUrl,"hola");
-    alert('hola' + get['merchantId'] );
-    return this.http.post('https://sandbox.gateway.payulatam.com/ppp-web-gateway/', {
-  },);
   }
 
 }
