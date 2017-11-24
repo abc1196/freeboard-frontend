@@ -17,6 +17,7 @@ import {AppRoutingModule} from './/app-routing.module';
 import {RegistercompanyComponent} from './registercompany/registercompany.component';
 import {CompanyService} from './services/company.service';
 import {StudentService} from './services/student.service';
+import {TransactionsService} from './services/transaction.service';
 import {TextMaskModule} from 'angular2-text-mask';
 import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -31,6 +32,8 @@ import { CompanyauctiondetailComponent } from './companyauctiondetail/companyauc
 import { CompanydetailComponent } from './companydetail/companydetail.component';
 import { CompanyofferdetailComponent } from './companyofferdetail/companyofferdetail.component';
 import { AuctionsComponent } from './auctions/auctions.component';
+import { PayresponsepageComponent } from './payresponsepage/payresponsepage.component';
+import { PayformComponent } from './payform/payform.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { AuctionsComponent } from './auctions/auctions.component';
     CompanyauctiondetailComponent,
     CompanydetailComponent,
     CompanyofferdetailComponent,
-    AuctionsComponent
+    AuctionsComponent,
+    PayresponsepageComponent,
+    PayformComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,8 @@ import { AuctionsComponent } from './auctions/auctions.component';
     AlertService,
     AuthenticationService,
     CompanyService,
-    StudentService],
+    StudentService,
+    TransactionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

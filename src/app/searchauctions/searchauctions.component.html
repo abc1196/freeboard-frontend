@@ -57,15 +57,15 @@
 			<th>Nombre</th>
 			<th>Tipo</th>
 			<th>Precio</th>
-			<th>Fecha</th>
+			<th>Fecha Cierre</th>
 		</tr>
 	</thead>
-	<tr>
+	<tr *ngFor="let auction of auctions">
 
-		<td><a [routerLink]="['../auctiondetail']">auction.id</a></td>
-		<td>auction.name</td>
-		<td>auction.type</td>
-		<td>auction.price</td>
+		<td>{{auction.name}}</td>
+		<td>{{auction.type}}</td>
+		<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
+		<td>{{auction.time}}</td>
 
 	</tr>
 </table>

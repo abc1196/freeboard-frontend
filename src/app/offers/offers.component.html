@@ -1,26 +1,25 @@
 
 <div class="wrapper">
 	<h2>Mis Ofertas</h2>
+	<app-alert></app-alert>
 	<table class="table table-striped custab">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Precio</th>
-					<th>Estado</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
+		<thead>
 			<tr>
-
-				<td><a [routerLink]="['../auctiondetail']">auction.id</a></td>
-				<td>auction.name</td>
-				<td>auction.type</td>
-				<td>auction.price</td>
-				<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span
-						class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#"
-					class="btn btn-danger btn-xs"><span
-						class="glyphicon glyphicon-remove"></span>Delete</a></td>
+				<th>ID</th>
+				<th>Precio</th>
+				<th>Estado</th>
+				<th>Acciones</th>
 			</tr>
-		</table>
+		</thead>
+		<tr *ngFor="let offer of offers">
+			<td>{{offer.idoffers}}</td>
+			<td>{{offer.price | currency:'USD':true:'1.2-2'}}</td>
+			<td>{{offer.state}}</td>
+			<td class="text-center"><a class='btn btn-info btn-xs'
+				[routerLink]="['../myoffers/', offer.idoffers]"><span
+					class="glyphicon glyphicon-edit"></span> Edit</a><a
+				(click)="deleteOffer(offer.idoffers)" class="btn btn-danger btn-xs"><span
+					class="glyphicon glyphicon-remove"></span>Delete</a></td>
+		</tr>
+	</table>
 </div>

@@ -21,6 +21,7 @@ import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
 import {AuctionsComponent} from './auctions/auctions.component';
+import {PayformComponent} from './payform/payform.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
   {
@@ -31,22 +32,22 @@ const routes: Routes = [
       {path: 'registerstudent', component: RegisterstudentComponent},
       {path: 'logincompany', component: LogincompanyComponent},
       {path: 'registercompany', component: RegistercompanyComponent},
+      {path: 'payform', component: PayformComponent},
       // otherwise redirect to welcome
       {path: '**', redirectTo: ''}
     ]
   },
   {
-    path: 'student', component: StudentprofileComponent, children: [
+    path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
       {path: '', redirectTo: '/student/studentdetails', pathMatch: 'full'},
       {path: 'studentdetails', component: StudentdetailsComponent},
       {path: 'searchauctions', component: SearchauctionsComponent},
       {path: 'myoffers', component: OffersComponent},
-      {path: 'myoffers/:id', component: StudentofferdetailComponent},
+      {path: 'myoffers/:idoffers', component: StudentofferdetailComponent},
       {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
     ]
   }, {
     path: 'company', component: CompanyprofileComponent, children: [
-      {path: '', redirectTo: '/company/companydetails', pathMatch: 'full'},
       {path: 'companydetails', component: CompanydetailComponent},
       {path: 'myauctions', component: AuctionsComponent},
       {path: 'offerdetail', component: CompanyofferdetailComponent},

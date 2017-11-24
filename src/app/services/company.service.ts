@@ -5,6 +5,9 @@ import {Auctions} from '../models/auctions';
 @Injectable()
 export class CompanyService {
 
+  companyEndpoint = 'https://cloudsql-dot-cloud-computing-freeboard.appspot.com/_ah/api/companies/v1/';
+  studentEndpoint = 'https://cloudsql-dot-cloud-computing-freeboard.appspot.com/_ah/api/students/v1/';
+
   constructor(private http: Http) {}
 
   signUpCompany(companies: Companies) {
