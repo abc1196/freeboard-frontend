@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Offers} from '../models/offers';
 import {Companies} from '../models/companies';
 import {CompanyService} from '../services/company.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AlertService} from '../services/alert.service';
+
 @Component({
   selector: 'app-companydetail',
   templateUrl: './companydetail.component.html',
@@ -11,7 +11,6 @@ import {AlertService} from '../services/alert.service';
   encapsulation: ViewEncapsulation.None
 })
 export class CompanydetailComponent implements OnInit {
-  [x: string]: any;
   companies: Companies;
   loading = false;
   constructor(private companyservice: CompanyService,

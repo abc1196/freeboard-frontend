@@ -21,6 +21,7 @@ import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
 import {AuctionsComponent} from './auctions/auctions.component';
+
 import {PayformComponent} from './payform/payform.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
@@ -47,7 +48,8 @@ const routes: Routes = [
       {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
     ]
   }, {
-    path: 'company', component: CompanyprofileComponent, children: [
+    path: 'company', component: CompanyprofileComponent, canActivate: [AuthGuard], children: [
+       {path: '', redirectTo: '/company/companydetails', pathMatch: 'full'},
       {path: 'companydetails', component: CompanydetailComponent},
       {path: 'myauctions', component: AuctionsComponent},
       {path: 'offerdetail', component: CompanyofferdetailComponent},

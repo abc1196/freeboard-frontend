@@ -21,11 +21,6 @@ export class AuctionsComponent implements OnInit {
       this.auction = data;
       this.companyservice.deleteAuction(this.auction.idauction).subscribe(response => this.refresh());
     }
-      //  (err: HttpErrorResponse) => {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      //  this.alertService.error(`Backend returned code ${err.status}, body was: ${err}`);
-      // }
 
     );
 
