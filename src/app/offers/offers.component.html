@@ -16,7 +16,7 @@
 			<td>{{offer.idoffers}}</td>
 			<td>{{offer.price | currency:'USD':true:'1.2-2'}}</td>
 			<td>{{offer.state}}</td>
-			<td class="text-center"><a (click)="deleteOffer(offer.idoffers)"
+			<td><a (click)="deleteOffer(offer.idoffers)"
 				class="btn btn-danger btn-xs"><span
 					class="glyphicon glyphicon-remove"></span>Delete</a></td>
 		</tr>

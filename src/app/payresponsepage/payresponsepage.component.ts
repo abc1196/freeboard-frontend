@@ -15,15 +15,15 @@ export class PayresponsepageComponent implements OnInit {
   returnUrl: string;
 
   constructor(
-    //private route: ActivatedRoute,
-    //private router: Router,
-    //private authenticationService: AuthenticationService,
+    // private route: ActivatedRoute,
+    // private router: Router,
+    // private authenticationService: AuthenticationService,
     private alertService: AlertService) {}
 
   ngOnInit() {
 
   }
 
-  
+
 
 }

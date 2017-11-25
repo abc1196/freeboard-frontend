@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AlertService} from '../services/alert.service';
 import {AuthenticationService} from '../services/authentication.service';
@@ -6,11 +6,11 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {CompanyService} from '../services/company.service';
 import {TransactionsService} from '../services/transaction.service';
 import {Transactions} from '../models/transactions';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { ObservableInput } from 'rxjs/Observable';
-import { Form } from '@angular/forms';
-import { RequestArgs } from '@angular/http/src/interfaces';
+import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {ObservableInput} from 'rxjs/Observable';
+import {Form} from '@angular/forms';
+import {RequestArgs} from '@angular/http/src/interfaces';
 
 @Component({
   moduleId: module.id,
@@ -27,37 +27,15 @@ export class PayformComponent implements OnInit {
   returnUrl: 'https://sandbox.gateway.payulatam.com/ppp-web-gateway/';
   transaction: Transactions;
 
-  constructor(private router: Router, private alertService: AlertService, 
+  constructor(private router: Router, private alertService: AlertService,
     private companyService: CompanyService, private transactionService: TransactionsService,
-    private http: Http) {   
+    private http: Http) {
   }
 
   ngOnInit() {
-    
+
   }
 
-  payform(): Observable<Response> {
-    
-    this.loading = true; 
-    //this.http.post(this.returnUrl,"hola");
-    alert('hola' + get['merchantId'] );
-    return this.http.post('https://sandbox.gateway.payulatam.com/ppp-web-gateway/', {
-      "nombreColor":"rojo",
-      "valorHexadec":"#f00"
-  },);
-    //this.transactionService.createTransaction(this.transaction).subscribe(data => {
-      //this.alertService.success('Cambios Guardados');
-      
-      //this.loading = false;
-    //},
-      //(err: HttpErrorResponse) => {
-        // The backend returned an unsuccessful response code.
-        // The response body may contain clues as to what went wrong,
-        //this.alertService.error(`Backend returned code ${err.status}, body was: ${err}`);
-        //this.loading = false;
-      //});
-      
-    
-  }
+
 
 }
