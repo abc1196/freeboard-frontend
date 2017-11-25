@@ -23,6 +23,9 @@ export class CompanyService {
   deleteAuction(idauctions: string) {
     return this.http.delete(this.companyEndpoint + 'removeAuction/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
+  showOffers(idauctions: string) {
+    return this.http.delete(this.companyEndpoint + 'auctionsShowOffers/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
+  }
   getAllAuctions() {
     return this.http.get(this.companyEndpoint + 'auctions').map((response: Response) => response.json());
   }

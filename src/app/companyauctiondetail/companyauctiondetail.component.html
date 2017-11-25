@@ -87,12 +87,12 @@
 			<th>Fecha Cierre</th>
 		</tr>
 	</thead>
-	<tr *ngFor="let auction of auctions">
+	<tr *ngFor="let offer of offers">
 
-		<td>{{auction.name}}</td>
-		<td>{{auction.type}}</td>
-		<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
-		<td>{{auction.time}}</td>
+		<td>{{offer.state}}</td>
+		<td>{{offer.price | currency:'COP':true:'1.2-2'}}</td>
+		<td><a (click)="deleteAuction(auction.idauctions) "
+			class="btn btn-success"><span class="glyphicon glyphicon-success"></span>Delete</a></td>
 
 	</tr>
 </table>
