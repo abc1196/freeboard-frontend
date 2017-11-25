@@ -34,6 +34,8 @@ export class StudentdetailsComponent implements OnInit {
       (err: HttpErrorResponse) => {
         // The backend returned an unsuccessful response code.
         // The response body may contain clues as to what went wrong,
+        console.log(this.students);
+        console.log(err);
         this.alertService.error(`Backend returned code ${err.status}, body was: ${err}`);
         this.loading = false;
       });

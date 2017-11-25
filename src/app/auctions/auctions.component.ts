@@ -1,8 +1,11 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Companies} from '../models/companies';
 import {Auctions} from '../models/auctions';
+import {AlertService} from '../services/alert.service';
 import {CompanyService} from '../services/company.service';
-import {ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpErrorResponse} from '@angular/common/http';
+
 @Component({
   selector: 'app-auctions',
   templateUrl: './auctions.component.html',
@@ -15,7 +18,8 @@ export class AuctionsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private companyservice: CompanyService) {}
+    private companyservice: CompanyService,
+    private alertService: AlertService) {}
 
   ngOnInit() {
 
@@ -25,9 +29,12 @@ export class AuctionsComponent implements OnInit {
   getAllAuctions() {
     this.companyservice.getAllAuctions().subscribe(data => {this.auctions = data.items;});
   }
-
+  deleteAuction(idauctions: string) {
+    this.companyservice.deleteAuction(idauctions).subscribe(response => this.refresh());
+  }
 
   refresh(): void {
     window.location.reload();
   }
 }
+

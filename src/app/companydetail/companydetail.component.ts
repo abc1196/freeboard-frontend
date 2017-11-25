@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 import {Companies} from '../models/companies';
 import {CompanyService} from '../services/company.service';
 import {HttpErrorResponse} from '@angular/common/http';
@@ -19,13 +19,13 @@ export class CompanydetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCompany();
   }
   getCompany() {
     this.companyservice.getCompanyProfile().subscribe(data => {this.companies = data; });
   }
   save() {
     this.loading = true;
+    console.log(this.companies);
     this.companyservice.updateCompany(this.companies).subscribe(data => {
       this.alertService.success('Cambios Guardados');
       this.loading = false;
@@ -33,6 +33,7 @@ export class CompanydetailComponent implements OnInit {
       (err: HttpErrorResponse) => {
         // The backend returned an unsuccessful response code.
         // The response body may contain clues as to what went wrong,
+        console.log(err);
         this.alertService.error(`Backend returned code ${err.status}, body was: ${err}`);
         this.loading = false;
       });

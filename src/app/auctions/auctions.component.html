@@ -1,27 +1,28 @@
 <div class="wrapper">
-	<div class="row col-md-6 col-md-offset-2 custyle">
-		<table class="table table-striped custab">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Nombre</th>
-					<th>Precio</th>
-					<th>Tipo</th>
-					<th>Fecha</th>
-					<th>Acción</th>
-				</tr>
-			</thead>
-			<tr *ngFor="let auction of auctions"
-				[routerLink]="['../myauctions/', auction.idauctions]">
-				<td>{{auction.idauctions}}</td>
-				<td>{{auction.name}}</td>
-				<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
-				<td>{{auction.type}}</td>
-				<td>{{auction.closeDate}}</td>
-				<td class="text-center"><a class="btn btn-danger btn-xs"><span
-						class="glyphicon glyphicon-remove"></span>Delete</a></td>
-			</tr>
-		</table>
 
-	</div>
+	<h2>Mis Subastas</h2>
+	<app-alert></app-alert>
+	<table class="table table-striped custab">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Precio</th>
+				<th>Tipo</th>
+				<th>Fecha</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tr *ngFor="let auction of auctions">
+			<td [routerLink]="['../myauctions/', auction.idauctions]">{{auction.idauctions}}</td>
+			<td>{{auction.name}}</td>
+			<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
+			<td>{{auction.type}}</td>
+			<td>{{auction.closeDate}}</td>
+			<td><a (click)="deleteAuction(auction.idauctions) "
+				class="btn btn-danger btn-xs"><span
+					class="glyphicon glyphicon-remove"></span>Delete</a></td>
+		</tr>
+	</table>
+
 </div>

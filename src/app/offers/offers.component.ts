@@ -38,9 +38,6 @@ export class OffersComponent implements OnInit {
     );
 
   }
-
-
-
   refresh(): void {
     window.location.reload();
   }

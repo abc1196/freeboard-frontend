@@ -9,4 +9,7 @@ export class Students {
   bank: string;
   accountType: string;
   accountOwner: string;
+  hash: string;
+  created: string;
+  updated: string;
 }
