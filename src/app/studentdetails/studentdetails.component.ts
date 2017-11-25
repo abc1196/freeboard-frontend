@@ -19,7 +19,6 @@ export class StudentdetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getStudent();
   }
 
   getStudent() {

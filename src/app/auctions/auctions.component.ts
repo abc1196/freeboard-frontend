@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Companies} from '../models/companies';
 import {Auctions} from '../models/auctions';
 import {CompanyService} from '../services/company.service';
+import {ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-auctions',
   templateUrl: './auctions.component.html',
@@ -10,21 +11,21 @@ import {CompanyService} from '../services/company.service';
 })
 export class AuctionsComponent implements OnInit {
   auction: Auctions;
-  companyservice: CompanyService;
-  constructor() {}
+  auctions: Auctions[] = [];
+
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private companyservice: CompanyService) {}
 
   ngOnInit() {
+
+    this.getAllAuctions();
   }
 
-  deleteAuction(idauction: string) {
-    this.companyservice.getAuctionById(idauction).subscribe(data => {
-      this.auction = data;
-      this.companyservice.deleteAuction(this.auction.idauction).subscribe(response => this.refresh());
-    }
-
-    );
-
+  getAllAuctions() {
+    this.companyservice.getAllAuctions().subscribe(data => {this.auctions = data.items;});
   }
+
 
   refresh(): void {
     window.location.reload();

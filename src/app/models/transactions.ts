@@ -1,4 +1,5 @@
 export class Transactions {
+
   referenceCode: string;
   description: string;
   amount: string;
@@ -19,4 +20,5 @@ export class Transactions {
   created: string;
   updated: string;
   offers_idoffers: string;
+
 }

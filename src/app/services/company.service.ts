@@ -23,12 +23,12 @@ export class CompanyService {
   deleteAuction(idauctions: string) {
     return this.http.delete(this.companyEndpoint + 'auctions/' + idauctions + '?jwt=' + this.getjwt() + '&idAuction=' + idauctions).map((response: Response) => response.json());
   }
-  getAuctions() {
-    return this.http.get(this.companyEndpoint + 'auctions?jwt=' + this.getjwt()).map((response: Response) => response.json());
+  getAllAuctions() {
+    return this.http.get(this.companyEndpoint + 'auctions').map((response: Response) => response.json());
   }
   getAuctionById(idauctions: string) {
 
-    return this.http.get(this.companyEndpoint + 'auctionsById/?jwt=' + this.getjwt() + '&idAuction=' + idauctions).map((response: Response) => response.json());
+    return this.http.get(this.companyEndpoint + 'auctionsById/'+ idauctions + '?jwt=' +this.getjwt() ).map((response: Response) => response.json());
   }
 
   getOffers(auctions: Auctions) {

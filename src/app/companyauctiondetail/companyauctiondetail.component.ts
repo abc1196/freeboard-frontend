@@ -1,8 +1,8 @@
 import {AlertService} from '../services/alert.service';
 import {CompanyService} from '../services/company.service';
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-
+import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Auctions} from '../models/auctions';
 @Component({
   selector: 'app-companyauctiondetail',
   templateUrl: './companyauctiondetail.component.html',
@@ -10,17 +10,25 @@ import {Router} from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class CompanyauctiondetailComponent implements OnInit {
-  model: any = {};
+  @Input() auction: Auctions;
   loading = false;
-  constructor(
+  constructor(private route: ActivatedRoute,
     private router: Router,
-    private companyservice: CompanyService,
-    private alertService: AlertService) {
+    private companyservice: CompanyService) {
+
   }
   ngOnInit() {
+
+    this.getAuctionById();
   }
   deleteAuction(idauction: string) {
 
   }
-
+  getAuctionById() {
+    console.log(this.route.snapshot.paramMap.get('idauctions'));
+    this.companyservice.getAuctionById(this.route.snapshot.paramMap.get('idauctions'))
+      .subscribe(data => {
+        this.auction = data;
+      });
+  }
 }

@@ -17,7 +17,7 @@
 		<div class="form-group"
 			[ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
 			<label for="lastname">Dirección</label> <input type="text"
-				class="form-control" name="lastname" [(ngModel)]="companies.address"
+				class="form-control" name="address" [(ngModel)]="companies.address"
 				#lastname="ngModel" required />
 			<div *ngIf="f.submitted && !address.valid" class="help-block">Last
 				Name is required</div>

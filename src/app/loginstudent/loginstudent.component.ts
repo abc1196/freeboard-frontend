@@ -36,7 +36,7 @@ export class LoginstudentComponent implements OnInit {
       data => {
         this.alertService.success('Login Succesfull');
         this.loading = false;
-        this.router.navigate(['/student']);
+        this.router.navigate(['/student/searchauctions']);
       },
       (err: HttpErrorResponse) => {
         // The backend returned an unsuccessful response code.

@@ -6,27 +6,22 @@
 					<th>ID</th>
 					<th>Nombre</th>
 					<th>Precio</th>
+					<th>Tipo</th>
 					<th>Fecha</th>
 					<th>Acción</th>
 				</tr>
 			</thead>
-			<tr>
-				<td><a [routerLink]="['../auctiondetail']">auction.id</a></td>
-				<td>auction.name</td>
-				<td>auction.type</td>
-				<td>auction.price</td>
-				<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span
-						class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#"
-					class="btn btn-danger btn-xs"><span
-						class="glyphicon glyphicon-remove"></span>Delete</a></td>
-
-
-				<td class="text-center"><a (click)="deteleAuction">
-					class="btn btn-danger btn-xs"><span
+			<tr *ngFor="let auction of auctions"
+				[routerLink]="['../myauctions/', auction.idauctions]">
+				<td>{{auction.idauctions}}</td>
+				<td>{{auction.name}}</td>
+				<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
+				<td>{{auction.type}}</td>
+				<td>{{auction.closeDate}}</td>
+				<td class="text-center"><a class="btn btn-danger btn-xs"><span
 						class="glyphicon glyphicon-remove"></span>Delete</a></td>
 			</tr>
 		</table>
-		<a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add
-			new categories</a>
+
 	</div>
 </div>

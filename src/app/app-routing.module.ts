@@ -53,7 +53,7 @@ const routes: Routes = [
       {path: 'companydetails', component: CompanydetailComponent},
       {path: 'myauctions', component: AuctionsComponent},
       {path: 'offerdetail', component: CompanyofferdetailComponent},
-      {path: 'auctiondetail/:id', component: CompanyauctiondetailComponent}]
+      {path: 'myauctions/:idauctions', component: CompanyauctiondetailComponent}]
   },
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
