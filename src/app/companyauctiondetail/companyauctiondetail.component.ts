@@ -17,6 +17,7 @@ export class CompanyauctiondetailComponent implements OnInit {
     private companyservice: CompanyService) {
 
   }
+  //read
   ngOnInit() {
 
     this.getAuctionById();
