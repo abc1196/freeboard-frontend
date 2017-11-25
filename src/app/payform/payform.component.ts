@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AlertService} from '../services/alert.service';
 import {AuthenticationService} from '../services/authentication.service';
@@ -6,11 +6,11 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {CompanyService} from '../services/company.service';
 import {TransactionsService} from '../services/transaction.service';
 import {Transactions} from '../models/transactions';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { ObservableInput } from 'rxjs/Observable';
-import { Form } from '@angular/forms';
-import { RequestArgs } from '@angular/http/src/interfaces';
+import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {ObservableInput} from 'rxjs/Observable';
+import {Form} from '@angular/forms';
+import {RequestArgs} from '@angular/http/src/interfaces';
 
 @Component({
   moduleId: module.id,
@@ -33,7 +33,16 @@ export class PayformComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
+=======
 
   }
+>>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
+
+<<<<<<< HEAD
+  }
+=======
+
+>>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
 
 }

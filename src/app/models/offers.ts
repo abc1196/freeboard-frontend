@@ -1,7 +1,7 @@
 export class Offers {
   idoffers: string;
-  price: string;
-  paid: boolean;
+  price: number;
+  paid: number;
   payHash: string;
   state: string;
   created: string;

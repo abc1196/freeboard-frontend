@@ -41,6 +41,10 @@ export class StudentService {
     return this.http.get(this.studentEndpoint + 'offers/auction/' + idoffers + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
 
+  getAuctionById(idauctions: string) {
+    return this.http.get(this.studentEndpoint + 'auction?auctionid=' + idauctions + '&jwt=' + this.getjwt()).map((response: Response) => response.json());
+  }
+
   deleteOffer(idoffers: string, idauctions: string) {
     return this.http.delete(this.studentEndpoint + 'offers/' + idoffers + '?jwt=' + this.getjwt() + '&idAuction=' + idauctions).map((response: Response) => response.json());
   }
@@ -49,8 +53,13 @@ export class StudentService {
     return this.http.get(this.studentEndpoint + 'offers/' + idoffers + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
 
-  updateOffer(offers: Offers) {
-    return this.http.put(this.studentEndpoint + 'offers/', offers + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
+  updateOffer(idoffers: string, price: string) {
+    return this.http.put(this.studentEndpoint + 'offers/?idoffers=' + idoffers + '&jwt=' + this.getjwt() + '&price=' + price).map((response: Response) => response.json());
+  }
+
+  addOffer(idauction: string, price: string) {
+    console.log(this.studentEndpoint + 'offers/', idauction + '?jwt=' + this.getjwt() + '&price=' + price);
+    return this.http.post(this.studentEndpoint + 'offers/' + idauction + '?jwt=' + this.getjwt() + '&price=' + price).map((response: Response) => response.json());
   }
 
   // private helper methods
