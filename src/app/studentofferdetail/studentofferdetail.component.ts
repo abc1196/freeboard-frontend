@@ -18,10 +18,12 @@ export class StudentofferdetailComponent implements OnInit {
   returnUrl: string;
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private studentService: StudentService) {}
+    private studentService: StudentService) {
+    this.getOffer();
+  }
 
   ngOnInit() {
-    this.getOffer();
+
   }
 
   getOffer() {
@@ -33,7 +35,8 @@ export class StudentofferdetailComponent implements OnInit {
 
   updateOffer() {
     this.loading = true;
-    this.studentService.updateOffer(this.offer).subscribe(
+    console.log(this.offer);
+    this.studentService.updateOffer(this.offer.idoffers, this.offer.price+'').subscribe(
       data => {
         console.log(data);
         this.loading = false;

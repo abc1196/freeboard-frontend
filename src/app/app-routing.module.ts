@@ -44,7 +44,7 @@ const routes: Routes = [
       {path: 'searchauctions', component: SearchauctionsComponent},
       {path: 'myoffers', component: OffersComponent},
       {path: 'myoffers/:idoffers', component: StudentofferdetailComponent},
-      {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
+      {path: 'searchauctions/:idauctions', component: StudentauctiondetailComponent}
     ]
   }, {
     path: 'company', component: CompanyprofileComponent, children: [

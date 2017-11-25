@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="input-group" id="adv-search">
-				<input type="text" class="form-control" placeholder="Busca Subastas" />
+				<input type="text" [(ngModel)]="queryString" class="form-control"
+					placeholder="Busca Subastas" />
 				<div class="input-group-btn">
 					<div class="btn-group" role="group">
 						<div class="dropdown dropdown-lg">
@@ -60,12 +61,30 @@
 			<th>Fecha Cierre</th>
 		</tr>
 	</thead>
-	<tr *ngFor="let auction of auctions">
-
+	<tr *ngFor="let auction of auctions | FilterPipePipe: queryString"
+		[routerLink]="['../searchauctions/', auction.idauctions]">
 		<td>{{auction.name}}</td>
 		<td>{{auction.type}}</td>
-		<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
-		<td>{{auction.time}}</td>
+		<td>{{auction.price | currency:'USD':true:'1.2-2'}}</td>
+		<td>{{auction.closeDate | date:"MM/dd/yy"}}</td>
 
 	</tr>
 </table>
+<div class="btn-toolbar" role="toolbar" style="margin: 0;">
+	<div class="btn-group">
+		<label style="margin-top: 10px">Page
+			{{currentIndex}}/{{pageNumber}}</label>
+	</div>
+	<div class="btn-group pull-right">
+		<ul class="pagination">
+			<li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}"><a
+				(click)="prevPage()">Prev</a></li>
+			<li *ngFor="let page of pagesIndex"
+				[ngClass]="{'active': (currentIndex == page)}"><a
+				(click)="setPage(page)">{{page}}</a></li>
+			<li
+				[ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}"><a
+				(click)="nextPage()">Next</a></li>
+		</ul>
+	</div>
+</div>

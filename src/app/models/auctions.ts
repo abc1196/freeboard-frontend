@@ -7,6 +7,6 @@ export class Auctions {
   secundaryColor: string;
   description: string;
   closeDate: string;
-  price: string;
+  price: number;
   created: string;
 }

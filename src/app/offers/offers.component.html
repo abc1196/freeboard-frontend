@@ -11,14 +11,13 @@
 				<th>Acciones</th>
 			</tr>
 		</thead>
-		<tr *ngFor="let offer of offers">
+		<tr *ngFor="let offer of offers"
+			[routerLink]="['../myoffers/', offer.idoffers]">
 			<td>{{offer.idoffers}}</td>
 			<td>{{offer.price | currency:'USD':true:'1.2-2'}}</td>
 			<td>{{offer.state}}</td>
-			<td class="text-center"><a class='btn btn-info btn-xs'
-				[routerLink]="['../myoffers/', offer.idoffers]"><span
-					class="glyphicon glyphicon-edit"></span> Edit</a><a
-				(click)="deleteOffer(offer.idoffers)" class="btn btn-danger btn-xs"><span
+			<td class="text-center"><a (click)="deleteOffer(offer.idoffers)"
+				class="btn btn-danger btn-xs"><span
 					class="glyphicon glyphicon-remove"></span>Delete</a></td>
 		</tr>
 	</table>
