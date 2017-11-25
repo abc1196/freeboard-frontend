@@ -4,6 +4,16 @@ body {
 
 .container {
 	margin-top: 50px;
+	color: #2C3E50;
+}
+
+.col-sm-3 {
+	margin-left: 20px;
+}
+
+.col-sm-8 {
+	margin-top: 20px;
+	width: 70%;
 }
 
 .dropdown.dropdown-lg .dropdown-menu {

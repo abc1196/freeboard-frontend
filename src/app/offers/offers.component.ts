@@ -4,6 +4,7 @@ import {AlertService} from '../services/alert.service';
 import {StudentService} from '../services/student.service';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-offers',
@@ -14,7 +15,8 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class OffersComponent implements OnInit {
   offers: Offers[] = [];
   auction: Auctions;
-  constructor(private studentservice: StudentService, private alertService: AlertService) {}
+  constructor(private studentservice: StudentService, private alertService: AlertService, private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     this.getOffers();
@@ -23,6 +25,13 @@ export class OffersComponent implements OnInit {
   getOffers() {
     this.studentservice.getOffers().subscribe(data => {this.offers = data.items;});
   }
+  getAuction(idoffers: string) {
+    this.studentservice.getAuctionId(idoffers).subscribe(auction => {
+      this.auction = auction;
+      this.router.navigate(['./student/searchauctions/' + this.auction.idauctions]);
+    });
+  }
+
 
   deleteOffer(idoffers: string) {
     this.studentservice.getAuctionId(idoffers).subscribe(data => {

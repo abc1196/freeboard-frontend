@@ -13,7 +13,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class StudentofferdetailComponent implements OnInit {
 
   @Input() offer: Offers;
-  auction: Auctions[];
+  @Input() auction: Auctions;
   loading = false;
   returnUrl: string;
   constructor(private route: ActivatedRoute,
@@ -30,13 +30,20 @@ export class StudentofferdetailComponent implements OnInit {
     this.studentService.getOffer(this.route.snapshot.paramMap.get('idoffers'))
       .subscribe(data => {
         this.offer = data;
+        this.studentService.getAuctionId(this.offer.idoffers).subscribe(auction => {
+          this.auction = auction;
+        });
       });
+  }
+
+  getAuction() {
+    this.router.navigate(['./student/searchauctions/'+ this.auction.idauctions]);
   }
 
   updateOffer() {
     this.loading = true;
     console.log(this.offer);
-    this.studentService.updateOffer(this.offer.idoffers, this.offer.price+'').subscribe(
+    this.studentService.updateOffer(this.offer.idoffers, this.offer.price + '').subscribe(
       data => {
         console.log(data);
         this.loading = false;

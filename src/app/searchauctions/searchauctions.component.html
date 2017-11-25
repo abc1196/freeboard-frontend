@@ -6,44 +6,7 @@
 					placeholder="Busca Subastas" />
 				<div class="input-group-btn">
 					<div class="btn-group" role="group">
-						<div class="dropdown dropdown-lg">
-							<button type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown" aria-expanded="false">
-								<span class="caret"></span>
-							</button>
-							<div class="dropdown-menu dropdown-menu-right" role="menu">
-								<form class="form-horizontal" role="form">
-									<div class="form-group">
-										<label for="filter">Precio</label> <select
-											class="form-control">
-											<option value="0" selected>Todos los precios</option>
-											<option value="1">Hasta $100.000</option>
-											<option value="2">$100.000 a $500.000</option>
-											<option value="3">Más de $500.000</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="contain">Tipo</label> <select class="form-control">
-											<option value="0" selected>Todos los tipos</option>
-											<option value="1">Logo</option>
-											<option value="2">Flyer</option>
-											<option value="3">Otros..</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="contain">Fecha</label> <select
-											class="form-control">
-											<option value="0" selected>Más recientes</option>
-											<option value="1">Más antiguas</option>
-										</select>
-									</div>
-									<button type="submit" class="btn btn-primary">
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</button>
-								</form>
-							</div>
-						</div>
-						<button type="button" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</button>
 					</div>
@@ -52,39 +15,59 @@
 		</div>
 	</div>
 </div>
-<table class="table table-striped custab">
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Tipo</th>
-			<th>Precio</th>
-			<th>Fecha Cierre</th>
-		</tr>
-	</thead>
-	<tr *ngFor="let auction of auctions | FilterPipePipe: queryString"
-		[routerLink]="['../searchauctions/', auction.idauctions]">
-		<td>{{auction.name}}</td>
-		<td>{{auction.type}}</td>
-		<td>{{auction.price | currency:'USD':true:'1.2-2'}}</td>
-		<td>{{auction.closeDate | date:"MM/dd/yy"}}</td>
-
-	</tr>
-</table>
-<div class="btn-toolbar" role="toolbar" style="margin: 0;">
-	<div class="btn-group">
-		<label style="margin-top: 10px">Page
-			{{currentIndex}}/{{pageNumber}}</label>
+<div class="row">
+	<div class="col-sm-3">
+		<form class="form-horizontal" role="form">
+			<h3 class="form-register-heading">Búsqueda Avanzada</h3>
+			<div class="form-group">
+				<label for="filter">Precio</label> <select class="form-control">
+					<option value="0" selected>Todos los precios</option>
+					<option value="1">Hasta $100.000</option>
+					<option value="2">$100.000 a $500.000</option>
+					<option value="3">Más de $500.000</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="contain">Tipo</label> <select class="form-control">
+					<option value="0" selected>Todos los tipos</option>
+					<option value="1">Logo</option>
+					<option value="2">Flyer</option>
+					<option value="3">Otros..</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="contain">Fecha</label> <select class="form-control">
+					<option value="0" selected>Más recientes</option>
+					<option value="1">Más antiguas</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			</button>
+		</form>
 	</div>
-	<div class="btn-group pull-right">
-		<ul class="pagination">
-			<li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}"><a
-				(click)="prevPage()">Prev</a></li>
-			<li *ngFor="let page of pagesIndex"
-				[ngClass]="{'active': (currentIndex == page)}"><a
-				(click)="setPage(page)">{{page}}</a></li>
-			<li
-				[ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}"><a
-				(click)="nextPage()">Next</a></li>
-		</ul>
+	<div class="col-sm-8">
+		<table class="table table-striped custab">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Tipo</th>
+					<th>Precio</th>
+					<th>Fecha Cierre</th>
+				</tr>
+			</thead>
+			<tr *ngFor="let auction of auctions | FilterPipePipe: queryString"
+				[routerLink]="['../searchauctions/', auction.idauctions]">
+				<td>{{auction.name}}</td>
+				<td>{{auction.type}}</td>
+				<td>{{auction.price | currency:'USD':true:'1.2-2'}}</td>
+				<td>{{auction.closeDate | date:"MM/dd/yy"}}</td>
+
+			</tr>
+
+		</table>
+		<div *ngIf="( auctions | FilterPipePipe: queryString).length === 0">
+			No se encontrarón resultados asociados a tu búsqueda</div>
 	</div>
 </div>
+

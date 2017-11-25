@@ -54,12 +54,12 @@ export class StudentService {
   }
 
   updateOffer(idoffers: string, price: string) {
-    return this.http.put(this.studentEndpoint + 'offers/?idoffers=' + idoffers + '&jwt=' + this.getjwt() + '&price=' + price).map((response: Response) => response.json());
+    return this.http.put(this.studentEndpoint + 'offers/?idoffers=' + idoffers + '&jwt=' + this.getjwt() + '&price=' + price,'').map((response: Response) => response.json());
   }
 
   addOffer(idauction: string, price: string) {
     console.log(this.studentEndpoint + 'offers/', idauction + '?jwt=' + this.getjwt() + '&price=' + price);
-    return this.http.post(this.studentEndpoint + 'offers/' + idauction + '?jwt=' + this.getjwt() + '&price=' + price).map((response: Response) => response.json());
+    return this.http.post(this.studentEndpoint + 'offers/' + idauction + '?jwt=' + this.getjwt() + '&price=' + price,'').map((response: Response) => response.json());
   }
 
   // private helper methods
