@@ -1,28 +1,103 @@
-<div class="wrapper">
+<div class="wrapper row">
 
-	<h3>Estas son las ofertas para tu subasta</h3>
-	<div class="row col-md-6 col-md-offset-2 custyle">
-		<table class="table table-striped custab">
-			<thead>
-				<tr>
-					<th>Price</th>
-					<th>Student Name</th>
-					<th>Student Skills</th>
-					<th>Date</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tr *ngFor="let auction of auctions">
+	<form class="form-register" name="form"
+		(ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+		<h3 class="form-register-heading">Detalles de tu Subasta</h3>
+		<div class="form-group">
+			<label for="name">Nombre </label><span> {{auction?.name}}</span>
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="name">Nombre</label> <input type="text"
+					class="form-control" name="name" [(ngModel)]="auction.name"
+					#name="ngModel" required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					Name is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="type">Tipo</label> <input type="text"
+					class="form-control" name="type" [(ngModel)]="auction.type"
+					#type="ngModel" required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					Type is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="price">Precio</label> <input type="text"
+					class="form-control" name="price" [(ngModel)]="auction.price"
+					#price="ngModel" required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					Price is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="closeDate">Fecha Límite</label> <input type="text"
+					class="form-control" name="closeDate"
+					[(ngModel)]="auction.closeDate" #closeDate="ngModel" required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					CloseDate is required</div>
+			</div>
+		</div>
 
-				<td><a routerLink="['../auctiondetail/{{auction.id}}']">{{auction.id}}</a></td>
-				<td>{{auction.id}}</td>
-				<td>Student.skill</td>
-				<td>offer.price</td>
-				<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span
-						class="glyphicon glyphicon-accept"></span> Aceptar</a> <a href="#"
-					class="btn btn-danger btn-xs"><span
-						class="glyphicon glyphicon-remove"></span>Rechazar</a></td>
-			</tr>
-		</table>
-	</div>
+		<div class="col-sm-6">
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="description">Descripción</label> <input type="text"
+					class="form-control" name="description"
+					[(ngModel)]="auction.description" #description="ngModel" required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					Description is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="mainColor">Color principal</label> <input type="text"
+					class="form-control" name="mainColor"
+					[(ngModel)]="auction.mainColor" #mainColor="ngModel" required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					Main color is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label for="secundaryColor">Color secundario</label> <input
+					type="text" class="form-control" name="secundaryColor"
+					[(ngModel)]="auction.secundaryColor" #secundaryColor="ngModel"
+					required />
+				<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					Secundary color is required</div>
+			</div>
+
+
+			<div class="form-group">
+				<button [disabled]="loading" class="btn btn-primary">Guardar
+					Cambios</button>
+				<img *ngIf="loading"
+					src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			</div>
+		</div>
+	</form>
 </div>
+<table class="table table-striped custab">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Tipo</th>
+			<th>Precio</th>
+			<th>Fecha Cierre</th>
+		</tr>
+	</thead>
+	<tr *ngFor="let offer of offers">
+
+		<td>{{offer.state}}</td>
+		<td>{{offer.price | currency:'COP':true:'1.2-2'}}</td>
+		<td><a (click)="deleteAuction(auction.idauctions) "
+			class="btn btn-success"><span class="glyphicon glyphicon-success"></span>Delete</a></td>
+
+	</tr>
+</table>
+
+
+
+
+

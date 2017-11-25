@@ -33,9 +33,16 @@ export class PayformComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
+=======
 
   }
+>>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
 
+<<<<<<< HEAD
+  }
+=======
 
+>>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
 
 }

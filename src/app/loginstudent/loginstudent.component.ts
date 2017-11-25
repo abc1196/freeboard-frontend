@@ -22,14 +22,11 @@ export class LoginstudentComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService, private studentservice: StudentService) {}
+    private alertService: AlertService,
+    private studentservice: StudentService) {}
 
   ngOnInit() {
-    // reset login status
     this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/student';
   }
 
   loginStudent() {
