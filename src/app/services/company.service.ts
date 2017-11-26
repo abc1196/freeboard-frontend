@@ -13,6 +13,9 @@ export class CompanyService {
   signUpCompany(companies: Companies) {
     return this.http.post(this.companyEndpoint + 'signup/company', companies).map((response: Response) => response.json());
   }
+  getStudentByOffer(idoffer: string) {
+    return this.http.get(this.companyEndpoint + 'auctionsGetStudent/' + idoffer + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
+  }
   addAuction(auction: Auctions) {
     return this.http.post(this.companyEndpoint + 'companies/addauction?date=' + auction.closeDate + '&description=' + auction.description + '&jwt=' + this.getjwt() + '&mainColor=' + auction.mainColor + '&name=' + auction.name + '&price=' + auction.price + '&secundaryColor=' + auction.secundaryColor + '&size=' + auction.size + '&type=' + auction.type, '').map((response: Response) => response.json());
   }

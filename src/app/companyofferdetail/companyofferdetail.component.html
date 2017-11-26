@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<h3>Publicado por</h3>
+				<div class="profile-userpic">
+					<img class="img-responsive center" src="assets/student.png">
+				</div>
+				<div class="profile-user-title">
+					<div class="profile-user-name">{{student?.name}}
+						{{student?.lastname}}</div>
+					<div class="profile-user-contact">{{student?.university}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+
+			<div class="row">
+				<h3 class="form-register-heading">Habilidades del Estudiante</h3>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="nombre">Habilidades</label> {{student?.skills}}
+					</div>
+					<div class="form-group">
+						<label for="tipo">Experiencia</label> {{student?.experience}}
+					</div>
+					<a (click)="selectWinnerOffer(offer.idoffers) "
+						class="btn btn-success"><span
+						class="glyphicon glyphicon-success"></span>Aceptar Oferta</a>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

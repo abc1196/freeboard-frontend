@@ -9,7 +9,7 @@ import {HttpErrorResponse} from '@angular/common/http';
   selector: 'app-addauction',
   templateUrl: './addauction.component.html',
   styleUrls: ['./addauction.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class AddauctionComponent implements OnInit {
   types = [

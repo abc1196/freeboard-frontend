@@ -4,6 +4,7 @@ import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Auctions} from '../models/auctions';
 import {Offers} from '../models/offers';
+import {Students} from '../models/students';
 
 import {HttpErrorResponse} from '@angular/common/http';
 @Component({
@@ -17,6 +18,7 @@ export class CompanyauctiondetailComponent implements OnInit {
   loading = false;
   offer: Offers;
   offers: Offers[] = [];
+  student: Students;
   constructor(private route: ActivatedRoute,
     private router: Router,
     private companyservice: CompanyService,
@@ -26,6 +28,7 @@ export class CompanyauctiondetailComponent implements OnInit {
     this.showOffers();
     this.getAuctionById();
   }
+
   showOffers() {
     this.companyservice.showOffers(this.route.snapshot.paramMap.get('idauctions')).subscribe(data => {this.offers = data.items;});
     console.log(this.offers);
@@ -39,6 +42,9 @@ export class CompanyauctiondetailComponent implements OnInit {
       .subscribe(data => {
         this.auction = data;
       });
+  }
+  getStudent(idoffers: string) {
+    this.router.navigate(['./company/companydetails/offerdetail/' + idoffers]);
   }
   save() {
     this.loading = true;
