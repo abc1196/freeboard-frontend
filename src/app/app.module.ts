@@ -37,12 +37,9 @@ import {PayformComponent} from './payform/payform.component';
 import {FilterPipePipe} from './pipes/filter-pipe.pipe';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
 import { StudentexperienceComponent } from './studentexperience/studentexperience.component';
-<<<<<<< HEAD
 import { TypePipe } from './pipes/type.pipe';
 import { PricePipe } from './pipes/price.pipe';
-=======
 import { CompanymenuComponent } from './companymenu/companymenu.component';
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
 
 @NgModule({
   declarations: [
@@ -71,12 +68,9 @@ import { CompanymenuComponent } from './companymenu/companymenu.component';
     FilterPipePipe,
     StudentmenuComponent,
     StudentexperienceComponent,
-<<<<<<< HEAD
     TypePipe,
-    PricePipe
-=======
+    PricePipe,
     CompanymenuComponent
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
   ],
   imports: [
     BrowserModule,
