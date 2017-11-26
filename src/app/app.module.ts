@@ -36,9 +36,9 @@ import {PayresponsepageComponent} from './payresponsepage/payresponsepage.compon
 import {PayformComponent} from './payform/payform.component';
 import {FilterPipePipe} from './pipes/filter-pipe.pipe';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
-import {StudentexperienceComponent} from './studentexperience/studentexperience.component';
-import {TypePipe} from './pipes/type.pipe';
-import {PricePipe} from './pipes/price.pipe';
+import { StudentexperienceComponent } from './studentexperience/studentexperience.component';
+import { TypePipe } from './pipes/type.pipe';
+import { PricePipe } from './pipes/price.pipe';
 import { CompanymenuComponent } from './companymenu/companymenu.component';
 import { AddauctionComponent } from './addauction/addauction.component';
 @NgModule({

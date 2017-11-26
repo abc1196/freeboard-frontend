@@ -7,7 +7,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class TypePipe implements PipeTransform {
 
   transform(auctions: Auctions[], args: string): any {
-    if(!args.startsWith('Todos los precios')) {
+    if(args != '') {
     return auctions.filter(auction => auction.type.toLowerCase().indexOf(args.toLowerCase()) !== -1);
     } else {
       return auctions;
