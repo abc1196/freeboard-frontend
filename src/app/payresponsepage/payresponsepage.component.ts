@@ -14,12 +14,10 @@ export class PayresponsepageComponent implements OnInit {
   loading = false;
   returnUrl: string;
 
-  constructor(
-
-    private alertService: AlertService) {}
+  constructor(private alertService: AlertService) {}
+ 
 
   ngOnInit() {
 
   }
-
 }
