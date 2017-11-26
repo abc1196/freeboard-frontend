@@ -2,7 +2,8 @@
 
 	<h2>Mis Subastas</h2>
 
-	<button type="button" class="btn btn-success" [routerLink]="['../addauction/']">Agregar Subasta</button>
+	<button type="button" class="btn btn-success"
+		[routerLink]="['../addauction/']">Agregar Subasta</button>
 	<app-alert></app-alert>
 	<table class="table table-striped custab">
 		<thead>
@@ -22,9 +23,9 @@
 			<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
 			<td>{{auction.type}}</td>
 			<td>{{auction.closeDate}}</td>
-			<td><a (click)="deleteAuction(auction.idauctions) "
+			<td (click)="deleteAuction(auction.idauctions) "
 				class="btn btn-danger btn-xs"><span
-					class="glyphicon glyphicon-remove"></span>Delete</a></td>
+				class="glyphicon glyphicon-remove"></span>Delete</td>
 		</tr>
 	</table>
 
