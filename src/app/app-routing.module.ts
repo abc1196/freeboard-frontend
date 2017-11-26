@@ -26,60 +26,63 @@ import {CompanymenuComponent} from './companymenu/companymenu.component';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
 import {StudentexperienceComponent} from './studentexperience/studentexperience.component';
 import {PayformComponent} from './payform/payform.component';
+import {ForgotpasswordComponent} from './forgotpassword/forgotpassword.component';
+
 const routes: Routes = [
-  {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
-  {
-    path: 'home', component: HomeComponent, children: [
-      {path: '', redirectTo: '/welcome', pathMatch: 'full'},
-      {path: 'welcome', component: WelcomeComponent},
-      {path: 'loginstudent', component: LoginstudentComponent},
-      {path: 'registerstudent', component: RegisterstudentComponent},
-      {path: 'logincompany', component: LogincompanyComponent},
-      {path: 'registercompany', component: RegistercompanyComponent},
-      {path: 'payform', component: PayformComponent},
-      // otherwise redirect to welcome
-      {path: '**', redirectTo: ''}
-    ]
-  },
-  {
-    path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
-      {path: '', redirectTo: '/student/studentdetails', pathMatch: 'full'},
-      {path: 'searchauctions', component: SearchauctionsComponent},
-      {path: 'searchauctions/:idauctions', component: StudentauctiondetailComponent},
-      {
-        path: 'studentdetails', component: StudentmenuComponent, children: [
-          {path: '', redirectTo: '/student/studentdetails/myoffers', pathMatch: 'full'},
-          {path: 'account', component: StudentdetailsComponent},
-          {path: 'experience', component: StudentexperienceComponent},
-          {path: 'myoffers', component: OffersComponent},
-          {path: 'myoffers/:idoffers', component: StudentofferdetailComponent}]
+    { path: '', redirectTo: '/home/welcome', pathMatch: 'full' },
+    {
+        path: 'home', component: HomeComponent, children: [
+            { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+            { path: 'welcome', component: WelcomeComponent },
+            { path: 'loginstudent', component: LoginstudentComponent },
+            { path: 'registerstudent', component: RegisterstudentComponent },
+            { path: 'logincompany', component: LogincompanyComponent },
+            { path: 'registercompany', component: RegistercompanyComponent },
+            { path: 'payform', component: PayformComponent },
+            {path: 'recoverpassword', component: ForgotpasswordComponent},
+            // otherwise redirect to welcome
+            { path: '**', redirectTo: '' }
+        ]
+    },
+    {
+        path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
+            { path: '', redirectTo: '/student/studentdetails', pathMatch: 'full' },
+            { path: 'searchauctions', component: SearchauctionsComponent },
+            { path: 'searchauctions/:idauctions', component: StudentauctiondetailComponent },
+            {
+                path: 'studentdetails', component: StudentmenuComponent, children: [
+                    { path: '', redirectTo: '/student/studentdetails/myoffers', pathMatch: 'full' },
+                    { path: 'account', component: StudentdetailsComponent },
+                    { path: 'experience', component: StudentexperienceComponent },
+                    { path: 'myoffers', component: OffersComponent },
+                    { path: 'myoffers/:idoffers', component: StudentofferdetailComponent }]
 
-      }]
-  }, {
-    path: 'company', component: CompanyprofileComponent, canActivate: [AuthGuard], children: [
-      {path: '', redirectTo: '/company/companydetails/myauctions', pathMatch: 'full'},
-      {
-        path: 'companydetails', component: CompanymenuComponent, children: [
-          {path: '', redirectTo: '/company/companydetails/account', pathMatch: 'full'},
-          {path: 'addauction', component: AddauctionComponent},
-          {path: 'account', component: CompanydetailComponent},
-          {path: 'myauctions', component: AuctionsComponent},
-          {path: 'offerdetail/:idoffers/:idauctions', component: CompanyofferdetailComponent},
-          {path: 'myauctions/:idauctions', component: CompanyauctiondetailComponent}]
-      }]
+            }]
+    }, {
+        path: 'company', component: CompanyprofileComponent, canActivate: [AuthGuard], children: [
+            { path: '', redirectTo: '/company/companydetails/myauctions', pathMatch: 'full' },
+            {
+                path: 'companydetails', component: CompanymenuComponent, children: [
+                    { path: '', redirectTo: '/company/companydetails/account', pathMatch: 'full' },
+                    { path: 'addauction', component: AddauctionComponent },
+                    { path: 'account', component: CompanydetailComponent },
+                    { path: 'myauctions', component: AuctionsComponent },
+                    { path: 'offerdetail/:idoffers/:idauctions', component: CompanyofferdetailComponent },
+                    { path: 'myauctions/:idauctions', component: CompanyauctiondetailComponent }]
+            }]
 
-  },
-  {
-    path: 'payOffer', component: PayformComponent, canActivate: [AuthGuard], children: [
-      {path: '', redirectTo: '/payOffer', pathMatch: 'full'},
-      {path: 'payOffer/:idoffer', component: PayformComponent}]
-  }
-  ,
-  // otherwise redirect to home
-  {path: '**', redirectTo: ''}
+    },
+    {
+        path: 'payOffer', component: PayformComponent, canActivate: [AuthGuard], children: [
+            { path: '', redirectTo: '/payOffer', pathMatch: 'full' },
+            { path: 'payOffer/:idoffer', component: PayformComponent }]
+    }
+    ,
+    // otherwise redirect to home
+    { path: '**', redirectTo: '' }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

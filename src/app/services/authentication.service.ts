@@ -13,7 +13,13 @@ export class AuthenticationService {
     authState: any = null;
     constructor(private afAuth: AngularFireAuth, private http: Http) {
         this.afAuth.authState.subscribe((auth) => {
-            this.authState = auth
+            this.authState = auth;
+        });
+    }
+
+    sendPasswordEmail(email: string) {
+        return this.afAuth.auth.sendPasswordResetEmail(email).then(function() {
+            return 'Email enviado';
         });
     }
 

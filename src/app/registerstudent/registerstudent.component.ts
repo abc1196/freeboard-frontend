@@ -31,9 +31,10 @@ export class RegisterstudentComponent implements OnInit {
 
                     user.sendEmailVerification().then(function() {
                         // Email sent.
-                       //  this.alertService.success('Login exitoso. Se ha enviado un correo de confirmación.');
-                       // this.loading = false;
-                       // this.router.navigate(['/home/loginstudent/']);
+                        console.log('correo enviado a ' + user);
+                        //  this.alertService.success('Login exitoso. Se ha enviado un correo de confirmación.');
+                        // this.loading = false;
+                        // this.router.navigate(['/home/loginstudent/']);
                     }).catch(function(error) {
                         console.log(error);
 

@@ -29,6 +29,10 @@ export class StudentService {
            // .catch(error => console.log(error));
     }
 
+    setPassword(password: string, email: string) { 
+        return this.http.put(this.studentEndpoint + 'setPassword?email='+ email + '&password=' + password,'').map((response: Response) => response.json());
+    }    
+    
     signUpStudent(students: Students) {
         return this.http.post(this.studentEndpoint + 'signup/student', students).map((response: Response) => response.json());
     }
