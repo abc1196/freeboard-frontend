@@ -20,6 +20,7 @@ export class AuthenticationService {
     sendPasswordEmail(email: string) {
         return this.afAuth.auth.sendPasswordResetEmail(email).then(function() {
             return 'Email enviado';
+
         });
     }
 

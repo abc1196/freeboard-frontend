@@ -23,6 +23,8 @@ import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdeta
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
 import {AuctionsComponent} from './auctions/auctions.component';
 import {CompanymenuComponent} from './companymenu/companymenu.component';
+import {LandingcompanyComponent} from './landingcompany/landingcompany.component';
+import {LandingstudentComponent} from './landingstudent/landingstudent.component';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
 import {StudentexperienceComponent} from './studentexperience/studentexperience.component';
 import {PayformComponent} from './payform/payform.component';
@@ -39,14 +41,31 @@ const routes: Routes = [
             { path: 'logincompany', component: LogincompanyComponent },
             { path: 'registercompany', component: RegistercompanyComponent },
             { path: 'payform', component: PayformComponent },
-            {path: 'recoverpassword', component: ForgotpasswordComponent},
+            { path: 'recoverpassword', component: ForgotpasswordComponent },
+            // otherwise redirect to welcome
+            { path: '**', redirectTo: '' }
+        ]
+    },
+
+    { path: '', redirectTo: '/home/welcome', pathMatch: 'full' },
+    {
+        path: 'home', component: HomeComponent, children: [
+            { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+            { path: 'welcome', component: WelcomeComponent },
+            { path: 'loginstudent', component: LoginstudentComponent },
+            { path: 'registerstudent', component: RegisterstudentComponent },
+            { path: 'logincompany', component: LogincompanyComponent },
+            { path: 'registercompany', component: RegistercompanyComponent },
+            { path: 'payform', component: PayformComponent },
             // otherwise redirect to welcome
             { path: '**', redirectTo: '' }
         ]
     },
     {
         path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
-            { path: '', redirectTo: '/student/studentdetails', pathMatch: 'full' },
+            { path: '', redirectTo: '/student/welcomestudent', pathMatch: 'full' },
+
+            { path: 'welcomestudent', component: LandingstudentComponent },
             { path: 'searchauctions', component: SearchauctionsComponent },
             { path: 'searchauctions/:idauctions', component: StudentauctiondetailComponent },
             {
@@ -60,7 +79,8 @@ const routes: Routes = [
             }]
     }, {
         path: 'company', component: CompanyprofileComponent, canActivate: [AuthGuard], children: [
-            { path: '', redirectTo: '/company/companydetails/myauctions', pathMatch: 'full' },
+            { path: '', redirectTo: '/company/welcomecompany', pathMatch: 'full' },
+            { path: 'welcomecompany', component: LandingcompanyComponent },
             {
                 path: 'companydetails', component: CompanymenuComponent, children: [
                     { path: '', redirectTo: '/company/companydetails/account', pathMatch: 'full' },
