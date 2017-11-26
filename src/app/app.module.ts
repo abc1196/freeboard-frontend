@@ -17,6 +17,7 @@ import {AppRoutingModule} from './/app-routing.module';
 import {RegistercompanyComponent} from './registercompany/registercompany.component';
 import {CompanyService} from './services/company.service';
 import {StudentService} from './services/student.service';
+import {GoogleAnalyticsEventsService} from "./services/google-analytics-events.service";
 import {TransactionsService} from './services/transaction.service';
 import {TextMaskModule} from 'angular2-text-mask';
 import {HomeComponent} from './home/home.component';
@@ -42,51 +43,52 @@ import { PricePipe } from './pipes/price.pipe';
 import { CompanymenuComponent } from './companymenu/companymenu.component';
 import { AddauctionComponent } from './addauction/addauction.component';
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    AlertComponent,
-    LoginstudentComponent,
-    LogincompanyComponent,
-    RegisterstudentComponent,
-    RegistercompanyComponent,
-    HomeComponent,
-    WelcomeComponent,
-    StudentprofileComponent,
-    StudentdetailsComponent,
-    SearchauctionsComponent,
-    OffersComponent,
-    StudentofferdetailComponent,
-    StudentauctiondetailComponent,
-    CompanyprofileComponent,
-    CompanyauctiondetailComponent,
-    CompanydetailComponent,
-    CompanyofferdetailComponent,
-    AuctionsComponent,
-    PayresponsepageComponent,
-    PayformComponent,
-    FilterPipePipe,
-    StudentmenuComponent,
-    StudentexperienceComponent,
-    CompanymenuComponent,
-    AddauctionComponent,
-    TypePipe,
-    PricePipe,
-    CompanymenuComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
-    TextMaskModule
-  ],
-  providers: [AuthGuard,
-    AlertService,
-    AuthenticationService,
-    CompanyService,
-    StudentService,
-    TransactionsService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        RegisterComponent,
+        AlertComponent,
+        LoginstudentComponent,
+        LogincompanyComponent,
+        RegisterstudentComponent,
+        RegistercompanyComponent,
+        HomeComponent,
+        WelcomeComponent,
+        StudentprofileComponent,
+        StudentdetailsComponent,
+        SearchauctionsComponent,
+        OffersComponent,
+        StudentofferdetailComponent,
+        StudentauctiondetailComponent,
+        CompanyprofileComponent,
+        CompanyauctiondetailComponent,
+        CompanydetailComponent,
+        CompanyofferdetailComponent,
+        AuctionsComponent,
+        PayresponsepageComponent,
+        PayformComponent,
+        FilterPipePipe,
+        StudentmenuComponent,
+        StudentexperienceComponent,
+        CompanymenuComponent,
+        AddauctionComponent,
+        TypePipe,
+        PricePipe,
+        CompanymenuComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        TextMaskModule
+    ],
+    providers: [AuthGuard,
+        AlertService,
+        AuthenticationService,
+        CompanyService,
+        StudentService,
+        TransactionsService,
+        GoogleAnalyticsEventsService],
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

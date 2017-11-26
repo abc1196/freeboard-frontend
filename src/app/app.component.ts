@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router, NavigationEnd} from "@angular/router";
+import {GoogleAnalyticsEventsService} from "./services/google-analytics-events.service";
 declare var ga: Function;
 @Component({
     selector: 'app-root',
@@ -8,7 +9,7 @@ declare var ga: Function;
 })
 export class AppComponent {
     title = 'Hello World';
-    constructor(public router: Router) {
+    constructor(public router: Router, public googleAnalyticsEventsService: GoogleAnalyticsEventsService) {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 ga('set', 'page', event.urlAfterRedirects);
