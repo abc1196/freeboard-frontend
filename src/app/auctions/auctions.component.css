@@ -11,7 +11,6 @@ body {
 	max-width: 680px;
 	padding: 15px 35px 45px;
 	margin: 0 auto;
-	
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	background-color: #fff;
 	.
@@ -26,6 +25,13 @@ body {
 
 h2, h3 {
 	text-transform: capitalize;
+	text-align: left;
+}
+
+.btn btn-success {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
 }
 
 .checkbox {

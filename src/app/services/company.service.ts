@@ -11,7 +11,7 @@ export class CompanyService {
   constructor(private http: Http) {}
 
   signUpCompany(companies: Companies) {
-    return this.http.post(this.companyEndpoint + 'signup/companies', companies).map((response: Response) => response.json());
+    return this.http.post(this.companyEndpoint + 'signup/company', companies).map((response: Response) => response.json());
   }
   getCompanyProfile() {
     return this.http.get(this.companyEndpoint + 'getCompanyProfile?jwt=' + this.getjwt()).map((response: Response) => response.json());

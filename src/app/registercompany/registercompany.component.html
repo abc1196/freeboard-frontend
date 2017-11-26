@@ -2,7 +2,7 @@
 <div class="wrapper">
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-		<h2 class="form-register-heading">Registro</h2>
+		<h2 class="form-register-heading">Registro para Empresas</h2>
 		<div class="form-group"
 			[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 			<label for="name">Nombre Empresa</label> <input type="text"
@@ -23,13 +23,12 @@
 			[ngClass]="{ 'has-error': f.submitted && !phone.valid }">
 			<label for="phone">Telefono</label><input type="text"
 				class="form-control" name="phone" [(ngModel)]="model.phone"
-				#phone="ngModel" required placeholder="+COUNTRY 1234567890"
-				[textMask]="{mask: mask}" pattern="\+\d{1,3}\d{10}" />
+				#phone="ngModel" required placeholder="+COUNTRY 1234567890" />
 			<div *ngIf="f.submitted && !phone.valid" class="help-block">Telefono
 				is required</div>
 		</div>
 		<div class="form-group"
-			[ngClass]="{ 'has-error': f.submitted && address.valid }">
+			[ngClass]="{ 'has-error': f.submitted && !address.valid }">
 			<label for="address">Direccion</label> <input type="text"
 				class="form-control" name="address" [(ngModel)]="model.address"
 				#address="ngModel" required />

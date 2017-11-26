@@ -56,7 +56,7 @@ const routes: Routes = [
       }]
   }, {
     path: 'company', component: CompanyprofileComponent, canActivate: [AuthGuard], children: [
-      {path: '', redirectTo: '/company/companydetails', pathMatch: 'full'},
+      {path: '', redirectTo: '/company/companydetails/myauctions', pathMatch: 'full'},
       {
         path: 'companydetails', component: CompanymenuComponent, children: [
          {path: '', redirectTo: '/company/companydetails/account', pathMatch: 'full'},

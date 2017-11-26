@@ -2,7 +2,7 @@
 
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-		<h2 class="form-register-heading">Registro</h2>
+		<h2 class="form-register-heading">Registro para Estudiantes</h2>
 		<div class="form-group"
 			[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 			<label for="name">Nombre</label> <input type="text"
