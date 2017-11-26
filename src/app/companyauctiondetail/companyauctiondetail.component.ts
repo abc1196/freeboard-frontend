@@ -18,21 +18,18 @@ export class CompanyauctiondetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private companyservice: CompanyService) {
-
   }
   ngOnInit() {
-
+    this.showOffers();
     this.getAuctionById();
   }
-  deleteAuction(idauction: string) {
-
+  showOffers() {
+    this.companyservice.showOffers(this.route.snapshot.paramMap.get('idauctions')).subscribe(data => {this.offers = data.items;});
+    console.log(this.offers);
   }
-
-  showOffers(idauctions: string) {
-    this.companyservice.showOffers(idauctions).subscribe(data => {this.offers = data.items;});
-
+  selectWinnerOffer(idoffer: string) {
+    this.companyservice.selectWinnerOffer(this.route.snapshot.paramMap.get('idauctions'), idoffer).subscribe(data => {this.offer = data;});
   }
-
   getAuctionById() {
     console.log(this.route.snapshot.paramMap.get('idauctions'));
     this.companyservice.getAuctionById(this.route.snapshot.paramMap.get('idauctions'))

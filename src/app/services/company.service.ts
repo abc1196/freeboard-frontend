@@ -24,15 +24,20 @@ export class CompanyService {
     return this.http.delete(this.companyEndpoint + 'removeAuction/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
   showOffers(idauctions: string) {
-    return this.http.delete(this.companyEndpoint + 'auctionsShowOffers/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
+    return this.http.get(this.companyEndpoint + 'auctionsShowOffers/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
   getAllAuctions() {
     return this.http.get(this.companyEndpoint + 'auctions').map((response: Response) => response.json());
   }
   getAuctionById(idauctions: string) {
 
-    return this.http.get(this.companyEndpoint + 'auctionsById/'+ idauctions + '?jwt=' +this.getjwt() ).map((response: Response) => response.json());
+    return this.http.get(this.companyEndpoint + 'auctionsById/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
+
+  selectWinnerOffer(idauctions: string, idoffer: string) {
+    return this.http.post(this.companyEndpoint + 'auctionsWinnerOffer/?auctionid=' + idauctions + '?jwt=' + this.getjwt() + '&offerid=' + idoffer, '').map((response: Response) => response.json());
+  }
+
 
   getOffers(auctions: Auctions) {
     return this.http.get(this.companyEndpoint + 'offers?jwt=' + this.getjwt()).map((response: Response) => response.json());

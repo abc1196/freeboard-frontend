@@ -55,6 +55,12 @@ const routes: Routes = [
       {path: 'offerdetail', component: CompanyofferdetailComponent},
       {path: 'myauctions/:idauctions', component: CompanyauctiondetailComponent}]
   },
+  {
+    path: 'payOffer', component: PayformComponent, canActivate: [AuthGuard], children: [
+      {path: '', redirectTo: '/payOffer', pathMatch: 'full'},
+      {path: 'payOffer/:idoffer', component: PayformComponent}]
+  }
+  ,
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
 ];

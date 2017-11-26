@@ -14,22 +14,9 @@ export class PayresponsepageComponent implements OnInit {
   loading = false;
   returnUrl: string;
 
-  constructor(
-<<<<<<< HEAD
-=======
-    // private route: ActivatedRoute,
-    // private router: Router,
-    // private authenticationService: AuthenticationService,
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
-    private alertService: AlertService) {}
+  constructor(private alertService: AlertService) {}
 
   ngOnInit() {
 
   }
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
 }
