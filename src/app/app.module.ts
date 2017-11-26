@@ -41,6 +41,8 @@ import { TypePipe } from './pipes/type.pipe';
 import { PricePipe } from './pipes/price.pipe';
 import { CompanymenuComponent } from './companymenu/companymenu.component';
 import { AddauctionComponent } from './addauction/addauction.component';
+import { LandingstudentComponent } from './landingstudent/landingstudent.component';
+import { LandingcompanyComponent } from './landingcompany/landingcompany.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,9 @@ import { AddauctionComponent } from './addauction/addauction.component';
     AddauctionComponent,
     TypePipe,
     PricePipe,
-    CompanymenuComponent
+    CompanymenuComponent,
+    LandingstudentComponent,
+    LandingcompanyComponent
   ],
   imports: [
     BrowserModule,
