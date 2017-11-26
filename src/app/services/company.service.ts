@@ -20,6 +20,10 @@ export class CompanyService {
     return this.http.put(this.companyEndpoint + 'update/company?jwt=' + this.getjwt(), companies).map((response: Response) => response.json());
   }
 
+  updateAuction(auction: Auctions) {
+    return this.http.put(this.companyEndpoint + 'updateAuction?jwt=' + this.getjwt(), auction).map((response: Response) => response.json());
+  }
+
   deleteAuction(idauctions: string) {
     return this.http.delete(this.companyEndpoint + 'removeAuction/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }

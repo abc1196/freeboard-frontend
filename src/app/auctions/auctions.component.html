@@ -14,7 +14,8 @@
 			</tr>
 		</thead>
 		<tr *ngFor="let auction of auctions">
-			<td [routerLink]="['../myauctions/', auction.idauctions]">{{auction.idauctions}}</td>
+			<td [routerLink]="['../myauctions/', auction.idauctions]"><a>{{auction.idauctions}}</a>
+			</td>
 			<td>{{auction.name}}</td>
 			<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
 			<td>{{auction.type}}</td>

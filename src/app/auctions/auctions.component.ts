@@ -10,7 +10,7 @@ import {HttpErrorResponse} from '@angular/common/http';
   selector: 'app-auctions',
   templateUrl: './auctions.component.html',
   styleUrls: ['./auctions.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class AuctionsComponent implements OnInit {
   auction: Auctions;
