@@ -2,18 +2,26 @@ body {
 	padding-top: 50px;
 }
 
+.container-top {
+	padding-top: 80px;
+	padding-bottom: 8px;
+	background: #2C3E50;
+}
+
 .container {
-	margin-top: 50px;
+	margin-top: 8px;
 	color: #2C3E50;
 }
 
 .col-sm-3 {
 	margin-left: 20px;
+	margin-bottom: 80px;
 }
 
 .col-sm-8 {
 	margin-top: 20px;
 	width: 70%;
+	margin-bottom: 80px;
 }
 
 .dropdown.dropdown-lg .dropdown-menu {

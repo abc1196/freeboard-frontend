@@ -37,6 +37,8 @@ import {PayformComponent} from './payform/payform.component';
 import {FilterPipePipe} from './pipes/filter-pipe.pipe';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
 import { StudentexperienceComponent } from './studentexperience/studentexperience.component';
+import { TypePipe } from './pipes/type.pipe';
+import { PricePipe } from './pipes/price.pipe';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { StudentexperienceComponent } from './studentexperience/studentexperienc
     PayformComponent,
     FilterPipePipe,
     StudentmenuComponent,
-    StudentexperienceComponent
+    StudentexperienceComponent,
+    TypePipe,
+    PricePipe
   ],
   imports: [
     BrowserModule,
