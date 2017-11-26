@@ -4,7 +4,10 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {RegisterComponent} from './register/register.component';
 import {AlertComponent} from './alert/alert.component';
 import {AuthGuard} from './guards/auth.guard';
@@ -42,6 +45,18 @@ import { TypePipe } from './pipes/type.pipe';
 import { PricePipe } from './pipes/price.pipe';
 import { CompanymenuComponent } from './companymenu/companymenu.component';
 import { AddauctionComponent } from './addauction/addauction.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+
+// Must export the config
+export const firebaseConfig = {
+    apiKey: "AIzaSyBQ07J9Du46aeF4OjdCw1Vu0KIinVHxifI",
+    authDomain: "cloud-computing-freeboard.firebaseapp.com",
+    databaseURL: "https://cloud-computing-freeboard.firebaseio.com",
+    projectId: "cloud-computing-freeboard",
+    storageBucket: "",
+    messagingSenderId: "859563682366"
+};
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -73,14 +88,18 @@ import { AddauctionComponent } from './addauction/addauction.component';
         AddauctionComponent,
         TypePipe,
         PricePipe,
-        CompanymenuComponent
+        CompanymenuComponent,
+        ForgotpasswordComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         AppRoutingModule,
-        TextMaskModule
+        TextMaskModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
     providers: [AuthGuard,
         AlertService,
