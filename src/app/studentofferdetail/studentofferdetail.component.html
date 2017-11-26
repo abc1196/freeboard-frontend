@@ -1,26 +1,33 @@
 <div class="wrapper">
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && updateOffer()" #f="ngForm" novalidate>
+		<app-alert></app-alert>
 		<h2 class="form-signin-heading">Detalles Oferta</h2>
 		<div class="form-group">
-			<label for="subasta">Subasta</label><br> <a
-				(click)="getAuction()" class="btn btn-danger btn-xs"><span>Ver
+			<label for="subasta">Detalles subasta</label><br> <a
+				(click)="getAuction()" class="btn btn-success btn-xs"><span>Ver
 					Subasta</span></a>
+		</div>
+		<div class="form-group">
+			<label for="price">Precio Subasta</label> {{auction?.price |
+			currency:'USD':true:'1.2-2'}}
 		</div>
 		<div class="form-group">
 			<label for="price">Precio</label> {{offer?.price |
 			currency:'USD':true:'1.2-2'}}
 		</div>
 		<div class="form-group"
-			[ngClass]="{ 'has-error': f.submitted && !price.valid }">
+			[ngClass]="{ 'has-error': f.submitted && offer.price < 0  && offer.price > auction.price }">
 			<label for="price">Nueva Oferta</label> <input type="number"
-				class="form-control" name="price" [(ngModel)]="offer.price"
-				#price="ngModel" required />
-			<div *ngIf="f.submitted && !price.valid" class="help-block">Price
-				must be Valid</div>
+				class="form-control" min="0" name="price" [(ngModel)]="offer.price"
+				#price="ngModel" (ngModelChange)="validate(offer.price, auction.price)"
+				required />
+			<div
+				*ngIf="f.submitted && offer.price < 0  && offer.price > auction.price "
+				class="help-block">Price must be Valid</div>
 		</div>
 		<div class="form-group">
-			<button [disabled]="loading" class="btn btn-primary"
+			<button [disabled]="loading" class="btn btn-success"
 				(click)="updateOffer()">Guardar Cambios</button>
 			<img *ngIf="loading"
 				src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
