@@ -6,7 +6,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   selector: 'app-companyprofile',
   templateUrl: './companyprofile.component.html',
   styleUrls: ['./companyprofile.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CompanyprofileComponent implements OnInit {
 

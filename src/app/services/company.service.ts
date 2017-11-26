@@ -11,7 +11,7 @@ export class CompanyService {
   constructor(private http: Http) {}
 
   signUpCompany(companies: Companies) {
-    return this.http.post(this.companyEndpoint + 'signup/companies', companies).map((response: Response) => response.json());
+    return this.http.post(this.companyEndpoint + 'signup/company', companies).map((response: Response) => response.json());
   }
   getCompanyProfile() {
     return this.http.get(this.companyEndpoint + 'getCompanyProfile?jwt=' + this.getjwt()).map((response: Response) => response.json());
@@ -20,19 +20,28 @@ export class CompanyService {
     return this.http.put(this.companyEndpoint + 'update/company?jwt=' + this.getjwt(), companies).map((response: Response) => response.json());
   }
 
+  updateAuction(auction: Auctions) {
+    return this.http.put(this.companyEndpoint + 'updateAuction?jwt=' + this.getjwt(), auction).map((response: Response) => response.json());
+  }
+
   deleteAuction(idauctions: string) {
     return this.http.delete(this.companyEndpoint + 'removeAuction/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
   showOffers(idauctions: string) {
-    return this.http.delete(this.companyEndpoint + 'auctionsShowOffers/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
+    return this.http.get(this.companyEndpoint + 'auctionsShowOffers/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
   getAllAuctions() {
     return this.http.get(this.companyEndpoint + 'auctions').map((response: Response) => response.json());
   }
   getAuctionById(idauctions: string) {
 
-    return this.http.get(this.companyEndpoint + 'auctionsById/'+ idauctions + '?jwt=' +this.getjwt() ).map((response: Response) => response.json());
+    return this.http.get(this.companyEndpoint + 'auctionsById/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
+
+  selectWinnerOffer(idauctions: string, idoffer: string) {
+    return this.http.post(this.companyEndpoint + 'auctionsWinnerOffer/?auctionid=' + idauctions + '?jwt=' + this.getjwt() + '&offerid=' + idoffer, '').map((response: Response) => response.json());
+  }
+
 
   getOffers(auctions: Auctions) {
     return this.http.get(this.companyEndpoint + 'offers?jwt=' + this.getjwt()).map((response: Response) => response.json());
