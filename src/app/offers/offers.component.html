@@ -15,7 +15,7 @@
 			</thead>
 			<tr *ngFor="let offer of offers">
 				<td><a (click)="getAuction(offer.idoffers)"
-					class="btn btn-danger btn-xs"><span>Ver Subasta</span></a></td>
+					class="btn btn-info btn-xs"><span>Ver Subasta</span></a></td>
 				<td>{{offer.price | currency:'USD':true:'1.2-2'}}</td>
 				<td>{{offer.state | uppercase}}
 					<div *ngIf="(offer.paid === 0 && offer.state === 'accepted')">
