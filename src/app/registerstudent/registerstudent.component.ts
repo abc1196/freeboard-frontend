@@ -28,10 +28,14 @@ export class RegisterstudentComponent implements OnInit {
       data => {
         // set success message and pass true paramater to persist the message after redirecting to the login page
         this.alertService.success('Registration successful', true);
-        this.router.navigate(['/loginstudent']);
-      },
-      error => {
-        this.alertService.error(error);
+        this.loading = false;
+        this.router.navigate(['/home/loginstudent/']);
+      }, err => {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        const el = JSON.parse(err._body);
+        console.log(el.error.message);
+        this.alertService.error(el.error.message);
         this.loading = false;
       });
   }

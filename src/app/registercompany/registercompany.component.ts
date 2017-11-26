@@ -30,10 +30,12 @@ export class RegistercompanyComponent implements OnInit {
         // set success message and pass true paramater to persist the message after redirecting to the login page
         this.alertService.success('Registration successful', true);
         this.router.navigate(['/home/logincompany']);
-      },
-      error => {
-        this.alertService.error(error);
-        this.loading = false;
+      }, err => {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        const el = JSON.parse(err._body);
+        console.log(el.error.message);
+        this.alertService.error(el.error.message);
       });
   }
 

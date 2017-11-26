@@ -7,7 +7,6 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class FilterPipePipe implements PipeTransform {
 
   transform(auctions: Auctions[], args: any): any {
-    console.log(auctions);
     return auctions.filter(auction => auction.name.toLowerCase().indexOf(args.toLowerCase()) !== -1);
   }
 
