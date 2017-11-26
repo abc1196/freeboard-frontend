@@ -64,7 +64,7 @@ const routes: Routes = [
           {path: 'addauction', component: AddauctionComponent},
           {path: 'account', component: CompanydetailComponent},
           {path: 'myauctions', component: AuctionsComponent},
-          {path: 'offerdetail/:idoffers', component: CompanyofferdetailComponent},
+          {path: 'offerdetail/:idoffers/:idauctions', component: CompanyofferdetailComponent},
           {path: 'myauctions/:idauctions', component: CompanyauctiondetailComponent}]
       }]
 

@@ -45,10 +45,7 @@ export class CompanyService {
   }
 
   selectWinnerOffer(idauctions: string, idoffer: string) {
-    return this.http.post(this.companyEndpoint + 'auctionsWinnerOffer/?auctionid=' + idauctions + '?jwt=' + this.getjwt() + '&offerid=' + idoffer, '').map((response: Response) => response.json());
-  }
-  getOffers(auctions: Auctions) {
-    return this.http.get(this.companyEndpoint + 'offers?jwt=' + this.getjwt()).map((response: Response) => response.json());
+    return this.http.post(this.companyEndpoint + 'auctionsWinnerOffer/?auctionid=' + idauctions + '&jwt=' + this.getjwt() + '&offerid=' + idoffer, '').map((response: Response) => response.json());
   }
   // private helper methods
   private getjwt() {

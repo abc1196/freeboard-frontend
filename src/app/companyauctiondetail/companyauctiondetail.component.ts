@@ -23,6 +23,8 @@ export class CompanyauctiondetailComponent implements OnInit {
     private router: Router,
     private companyservice: CompanyService,
     private alertService: AlertService) {
+    this.showOffers();
+    this.getAuctionById();
   }
   ngOnInit() {
     this.showOffers();
@@ -34,7 +36,7 @@ export class CompanyauctiondetailComponent implements OnInit {
     console.log(this.offers);
   }
   selectWinnerOffer(idoffer: string) {
-    this.companyservice.selectWinnerOffer(this.route.snapshot.paramMap.get('idauctions'), idoffer).subscribe(data => {this.offer = data;});
+    this.companyservice.selectWinnerOffer(this.auction.idauctions, idoffer).subscribe(data => {this.offer = data;});
   }
   getAuctionById() {
     console.log(this.route.snapshot.paramMap.get('idauctions'));
@@ -44,7 +46,7 @@ export class CompanyauctiondetailComponent implements OnInit {
       });
   }
   getStudent(idoffers: string) {
-    this.router.navigate(['./company/companydetails/offerdetail/' + idoffers]);
+    this.router.navigate(['/company/companydetails/offerdetail/' + idoffers, this.route.snapshot.paramMap.get('idauctions')]);
   }
   save() {
     this.loading = true;

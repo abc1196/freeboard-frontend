@@ -1,6 +1,9 @@
+import {Auctions} from '../models/auctions';
 import {Offers} from '../models/offers';
 import {Students} from '../models/students';
+import {AlertService} from '../services/alert.service';
 import {CompanyService} from '../services/company.service';
+import {StudentService} from '../services/student.service';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,15 +16,18 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class CompanyofferdetailComponent implements OnInit {
 
-  offer: Offers;
   student: Students;
+  loading = false;
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private companyservice: CompanyService) {
+    private studentservice: StudentService,
+    private companyservice: CompanyService,
+    private alertService: AlertService) {
     this.getStudent();
   }
 
   ngOnInit() {
+    this.getStudent();
   }
   getStudent() {
     console.log(this.route.snapshot.paramMap.get('idoffers'));
@@ -29,9 +35,19 @@ export class CompanyofferdetailComponent implements OnInit {
       this.student = data;
     });
   }
-  selectWinnerOffer(idoffer: string) {
-    this.companyservice.selectWinnerOffer(this.route.snapshot.paramMap.get('idauctions'), idoffer).subscribe(data => {this.offer = data;});
-    this.router.navigate(['./company/companydetails']);
+  selectWinnerOffer() {
+    this.companyservice.selectWinnerOffer(this.route.snapshot.paramMap.get('idauctions'), this.route.snapshot.paramMap.get('idoffers')).subscribe(data => {
+      this.alertService.success('Oferta aceptada');
+      this.loading = false;
+    },
+      (err: HttpErrorResponse) => {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        console.log(err);
+        this.alertService.error(`Backend returned code ${err.status}, body was: ${err}`);
+        this.loading = false;
+      });
+    this.router.navigate(['/company/companydetails/myauctions/' + this.route.snapshot.paramMap.get('idauctions')]);
   }
 
 }
