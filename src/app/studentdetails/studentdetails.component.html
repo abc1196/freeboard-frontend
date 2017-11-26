@@ -1,13 +1,13 @@
+
+
 <div class="wrapper">
-	<div class="panel-group" id="accordion">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" data-parent="#accordion"
-						href="#collapse1">Collapsible Group 1</a>
-				</h4>
-			</div>
-			<div id="collapse1" class="panel-collapse collapse in">
+
+	<form class="form-register" name="form"
+		(ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+		<app-alert></app-alert>
+		<div class="row">
+			<div class="col-sm-6">
+				<h3 class="form-register-heading">Informacion Personal</h3>
 				<div class="form-group">
 					<label for="email">Email </label><span> {{students?.email}}
 					</span>
@@ -45,80 +45,6 @@
 					<div *ngIf="f.submitted && !university.valid" class="help-block">Universidad
 						is required</div>
 				</div>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion"
-							href="#collapse2">Collapsible Group 2</a>
-					</h4>
-				</div>
-				<div id="collapse2" class="panel-collapse collapse">
-					<div class="form-group"
-						[ngClass]="{ 'has-error': f.submitted && !accountOwner.valid }">
-						<label for="accountOwner">Titular Cuenta</label> <input
-							type="text" class="form-control" name="accountOwner"
-							[(ngModel)]="students.accountOwner" #accountOwner="ngModel"
-							required />
-						<div *ngIf="f.submitted && !accountOwner.valid" class="help-block">Titular
-							Cuenta is required</div>
-					</div>
-					<div class="form-group"
-						[ngClass]="{ 'has-error': f.submitted && !bank.valid }">
-						<label for="bank">Banco</label> <input type="text"
-							class="form-control" name="bank" [(ngModel)]="students.bank"
-							#bank="ngModel" required />
-						<div *ngIf="f.submitted && !bank.valid" class="help-block">Banco
-							is required</div>
-					</div>
-					<div class="form-group"
-						[ngClass]="{ 'has-error': f.submitted && !bankWire.valid }">
-						<label for="bankWire">Numero de Cuenta</label> <input
-							type="number" class="form-control" name="bankWire"
-							[(ngModel)]="students.bankWire" #bankWire="ngModel" required />
-						<div *ngIf="f.submitted && !bankWire.valid" class="help-block">Numero
-							de Cuenta is required</div>
-					</div>
-					<div class="form-group"
-						[ngClass]="{ 'has-error': f.submitted && !accountType.valid }">
-						<label for="accountType">Tipo de Cuenta</label> <select
-							class="form-control" name="accountType"
-							[(ngModel)]="students.accountType" #accountType="ngModel"
-							required>
-							<option value="Ahorros">Ahorros</option>
-							<option value="Corriente">Corriente</option>
-						</select>
-						<div *ngIf="f.submitted && !accountType.valid" class="help-block">Tipo
-							de Cuenta is required</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#accordion"
-								href="#collapse3">Collapsible Group 3</a>
-						</h4>
-					</div>
-					<div id="collapse3" class="panel-collapse collapse">
-						<div class="panel-body">Lorem ipsum dolor sit amet,
-							consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-							nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-							commodo consequat.</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="wrapper row">
-	<form class="form-register" name="form"
-		(ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
-		<app-alert></app-alert>
-		<div class="row">
-			<div class="col-sm-6">
-				<h3 class="form-register-heading">Informacion Personal</h3>
-
 				<div class="form-group">
 					<button [disabled]="loading" class="btn btn-primary">Guardar
 						Cambios</button>
@@ -128,7 +54,42 @@
 			</div>
 			<div class="col-sm-6">
 				<h3>Informacion Bancaria</h3>
-
+				<div class="form-group"
+					[ngClass]="{ 'has-error': f.submitted && !accountOwner.valid }">
+					<label for="accountOwner">Titular Cuenta</label> <input type="text"
+						class="form-control" name="accountOwner"
+						[(ngModel)]="students.accountOwner" #accountOwner="ngModel"
+						required />
+					<div *ngIf="f.submitted && !accountOwner.valid" class="help-block">Titular
+						Cuenta is required</div>
+				</div>
+				<div class="form-group"
+					[ngClass]="{ 'has-error': f.submitted && !bank.valid }">
+					<label for="bank">Banco</label> <input type="text"
+						class="form-control" name="bank" [(ngModel)]="students.bank"
+						#bank="ngModel" required />
+					<div *ngIf="f.submitted && !bank.valid" class="help-block">Banco
+						is required</div>
+				</div>
+				<div class="form-group"
+					[ngClass]="{ 'has-error': f.submitted && !bankWire.valid }">
+					<label for="bankWire">Numero de Cuenta</label> <input type="number"
+						class="form-control" name="bankWire"
+						[(ngModel)]="students.bankWire" #bankWire="ngModel" required />
+					<div *ngIf="f.submitted && !bankWire.valid" class="help-block">Numero
+						de Cuenta is required</div>
+				</div>
+				<div class="form-group"
+					[ngClass]="{ 'has-error': f.submitted && !accountType.valid }">
+					<label for="accountType">Tipo de Cuenta</label> <select
+						class="form-control" name="accountType"
+						[(ngModel)]="students.accountType" #accountType="ngModel" required>
+						<option value="Ahorros">Ahorros</option>
+						<option value="Corriente">Corriente</option>
+					</select>
+					<div *ngIf="f.submitted && !accountType.valid" class="help-block">Tipo
+						de Cuenta is required</div>
+				</div>
 			</div>
 		</div>
 	</form>

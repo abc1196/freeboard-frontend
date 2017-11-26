@@ -3,7 +3,7 @@ body {
 }
 
 .wrapper {
-	margin-top: 120px;
+	margin-top: 0px;
 	margin-bottom: 100px;
 }
 
@@ -49,50 +49,4 @@ input[type="password"] {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
-
-}
-.profile {
-	margin-top: 80px;
-	margin-bottom: 80px;
-}
-
-.profile-sidebar {
-	padding: 20px 0 10px 0;
-}
-
-.profile-user-pic {
-	float: none;
-	margin: 0 auto;
-	width: 50%;
-	height: 50%;
-}
-
-img.center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.profile-user-title {
-	text-align: center;
-	margin-top: 20px;
-}
-
-.profile-user-name {
-	font-size: 18px;
-	font-weight: 600;
-	margin-bottom: 7px;
-}
-
-.profile-user-contact {
-	font-size: 16px;
-	margin-bottom: 7px;
-}
-
-.profile-user-menu {
-	margin-top: 30px;
-}
-
-.profile-user-menu li {
-	border-bottom: 2px solid #f0f4f7 !important;
 }

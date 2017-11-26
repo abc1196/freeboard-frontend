@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<div class="profile-userpic">
+					<img class="img-responsive center" src="assets/student.png">
+				</div>
+				<div class="profile-user-title">
+					<div class="profile-user-name">{{students?.name}}
+						{{students?.lastname}}</div>
+				</div>
+				<div class="profile-user-menu">
+					<ul class="nav">
+						<li><a [routerLink]="['../studentdetails/myoffers']"><i
+								class="	glyphicon glyphicon-briefcase"></i> Mis Ofertas</a></li>
+						<li><a [routerLink]="['../studentdetails/experience']"><i class="	glyphicon glyphicon-education"></i> Mi
+								Experiencia</a></li>
+						<li><a [routerLink]="['../studentdetails/account']"> <i
+								class="glyphicon glyphicon-cog"></i> Configuración de Cuenta
+						</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>

@@ -1,4 +1,5 @@
 import {Auctions} from '../models/auctions';
+import { Companies } from '../models/companies';
 import {StudentService} from '../services/student.service';
 import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -8,11 +9,12 @@ import {HttpErrorResponse} from '@angular/common/http';
   selector: 'app-studentauctiondetail',
   templateUrl: './studentauctiondetail.component.html',
   styleUrls: ['./studentauctiondetail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class StudentauctiondetailComponent implements OnInit {
   @Input() auction: Auctions;
-  @Input() newoffer: number;
+  company: Companies;
+  newoffer: number;
   loading = false;
   returnUrl: string;
   constructor(private route: ActivatedRoute,
@@ -43,6 +45,9 @@ export class StudentauctiondetailComponent implements OnInit {
     console.log(this.route.snapshot.paramMap.get('idauctions'));
     this.studentService.getAuctionById(this.route.snapshot.paramMap.get('idauctions')).subscribe(data => {
       this.auction = data;
+      this.studentService.getCompanyByAuction(this.auction.idauctions).subscribe(c => {
+        this.company = c;
+      });
     });
   }
 

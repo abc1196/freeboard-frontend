@@ -1,4 +1,3 @@
-import {Offers} from '../models/offers';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AlertService} from '../services/alert.service';
@@ -23,7 +22,7 @@ import {RequestArgs} from '@angular/http/src/interfaces';
 
 export class PayformComponent implements OnInit {
 
-  offer: Offers;
+  model: any = {};
   loading = false;
   returnUrl: 'https://sandbox.gateway.payulatam.com/ppp-web-gateway/';
   transaction: Transactions;
@@ -34,7 +33,7 @@ export class PayformComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
 
+  }
 
 }

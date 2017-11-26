@@ -7,7 +7,7 @@ import {FilterPipePipe} from '../pipes/filter-pipe.pipe';
   selector: 'app-searchauctions',
   templateUrl: './searchauctions.component.html',
   styleUrls: ['./searchauctions.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SearchauctionsComponent implements OnInit {
   queryString = '';

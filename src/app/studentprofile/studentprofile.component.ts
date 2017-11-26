@@ -6,7 +6,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   selector: 'app-studentprofile',
   templateUrl: './studentprofile.component.html',
   styleUrls: ['./studentprofile.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class StudentprofileComponent implements OnInit {
 

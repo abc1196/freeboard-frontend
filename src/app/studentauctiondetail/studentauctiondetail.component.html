@@ -1,63 +1,75 @@
-<div class="wrapper row">
-
-	<form class="form-register" name="form"
-		(ngSubmit)="f.form.valid && addOffer()" #f="ngForm" novalidate>
-		<div class="row">
-			<h3 class="form-register-heading">Detalles Subasta</h3>
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label for="nombre">Nombre</label> {{auction?.name}}
+<div class="container">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<h3>Publicado por</h3>
+				<div class="profile-userpic">
+					<img class="img-responsive center" src="assets/man.png">
 				</div>
-				<div class="form-group">
-					<label for="tipo">Tipo</label> {{auction?.type}}
-				</div>
-				<div class="form-group">
-					<label for="descripcion">Descripción</label> <br> <span>{{auction?.description}}</span>
-				</div>
-				<div class="form-group">
-					<label for="precio">Precio</label> {{auction?.price |
-					currency:'USD':true:'1.2-2'}}
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="input-group">
-							<div class="form-group"
-								[ngClass]="{ 'has-error': f.submitted && newoffer > 0  && newoffer > auction.price}">
-								<input type="number" placeholder="Tu Oferta"
-									class="form-control" name="price" [(ngModel)]="newoffer"
-									required />
-							</div>
-
-							<div
-								*ngIf="f.submitted && newoffer > 0  && newoffer > auction.price"
-								class="help-block">Price must be Valid</div>
-						</div>
-						<div class="input-group-btn">
-							<div class="btn-group" role="group">
-								<button [disabled]="loading" class="btn btn-primary">Aplicar
-									Oferta</button>
-								<img *ngIf="loading"
-									src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label for="tamano">Tamaño</label> <span>{{auction?.size}}</span>
-				</div>
-				<div class="form-group">
-					<label for="colorp">Color principal</label> <span>{{auction?.mainColor}}</span>
-				</div>
-				<div class="form-group">
-					<label for="colors">Color principal</label> <span>{{auction?.secundaryColor}}</span>
-				</div>
-				<div class="form-group">
-					<label for="fecha">Fecha de cierre</label> <span>{{auction?.closeDate
-						| date:"MM/dd/yy"}}</span>
+				<div class="profile-user-title">
+					<div class="profile-user-name">{{company?.name}}</div>
+					<div class="profile-user-contact">{{company?.contactPerson}}</div>
 				</div>
 			</div>
 		</div>
-	</form>
+		<div class="col-md-6">
+			<form class="form-register" name="form"
+				(ngSubmit)="f.form.valid && addOffer()" #f="ngForm" novalidate>
+				<div class="row">
+					<h3 class="form-register-heading">Detalles Subasta</h3>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="nombre">Nombre</label> {{auction?.name}}
+						</div>
+						<div class="form-group">
+							<label for="tipo">Tipo</label> {{auction?.type}}
+						</div>
+						<div class="form-group">
+							<label for="descripcion">Descripción</label> <br> <span>{{auction?.description}}</span>
+						</div>
+						<div class="form-group">
+							<label for="precio">Precio</label> {{auction?.price |
+							currency:'USD':true:'1.2-2'}}
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="input-group">
+									<div class="form-group"
+										[ngClass]="{ 'has-error': f.submitted && 'newoffer' < 0  && 'newoffer' > auction.price && !newoffer.valid}">
+										<input type="number" placeholder="Tu Oferta"
+											class="form-control" name="newoffer" [(ngModel)]="newoffer"
+											required />
+									</div>
+									<div class="input-group-btn">
+										<div class="btn-group" role="group">
+											<button [disabled]="loading" class="btn btn-primary">Aplicar
+												Oferta</button>
+											<img *ngIf="loading"
+												src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="tamano">Tamaño</label> <span>{{auction?.size}}</span>
+						</div>
+						<div class="form-group">
+							<label for="colorp">Color principal</label> <span>{{auction?.mainColor}}</span>
+						</div>
+						<div class="form-group">
+							<label for="colors">Color principal</label> <span>{{auction?.secundaryColor}}</span>
+						</div>
+						<div class="form-group">
+							<label for="fecha">Fecha de cierre</label> <span>{{auction?.closeDate
+								| date:"MM/dd/yy"}}</span>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>

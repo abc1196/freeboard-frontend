@@ -1,9 +1,10 @@
 
 <div class="wrapper">
-	<app-alert></app-alert>
+
 	<form class="form-signin" name="form"
 		(ngSubmit)="f.form.valid && loginStudent()" #f="ngForm" novalidate>
-		<h2 class="form-signin-heading">Login</h2>
+		<app-alert></app-alert>
+		<h2 class="form-signin-heading">Login Student</h2>
 		<div class="form-group"
 			[ngClass]="{ 'has-error': f.submitted && !email.valid }">
 			<label for="email">Email</label> <input type="email"
