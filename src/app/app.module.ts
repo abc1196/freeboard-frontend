@@ -38,6 +38,7 @@ import {FilterPipePipe} from './pipes/filter-pipe.pipe';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
 import { StudentexperienceComponent } from './studentexperience/studentexperience.component';
 import { CompanymenuComponent } from './companymenu/companymenu.component';
+import { AddauctionComponent } from './addauction/addauction.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CompanymenuComponent } from './companymenu/companymenu.component';
     FilterPipePipe,
     StudentmenuComponent,
     StudentexperienceComponent,
-    CompanymenuComponent
+    CompanymenuComponent,
+    AddauctionComponent
   ],
   imports: [
     BrowserModule,

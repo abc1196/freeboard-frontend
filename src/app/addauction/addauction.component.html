@@ -45,9 +45,9 @@
 			<div class="col-sm-6">
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
-					<label for="description">Descripción</label> <textarea 
-						class="form-control" name="description" [(ngModel)]="auction.description"
-						#experience="ngModel" required ></textarea>
+					<label for="description">Descripción</label>
+					<textarea class="form-control" name="description"
+						[(ngModel)]="auction.description" #experience="ngModel" required></textarea>
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Description is required</div>
 				</div>
@@ -80,25 +80,3 @@
 		</div>
 	</form>
 </div>
-<table class="table table-striped custab">
-	<thead>
-		<tr>
-			<th>Precio</th>
-			<th>Estado</th>
-			<th>Aceptar</th>
-		</tr>
-	</thead>
-	<tr *ngFor="let offer of offers">
-
-		<td>{{offer.price | currency:'COP':true:'1.2-2'}}</td>
-		<td>{{offer.state}}</td>
-		<td [routerLink]="['./payOffer', offer.idoffers]"><a (click)="selectWinnerOffer(offer.idoffers) "
-			class="btn btn-success"><span class="glyphicon glyphicon-success"></span>Aceptar</a></td>
-
-	</tr>
-</table>
-
-
-
-
-

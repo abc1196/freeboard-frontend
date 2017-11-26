@@ -13,6 +13,9 @@ export class CompanyService {
   signUpCompany(companies: Companies) {
     return this.http.post(this.companyEndpoint + 'signup/company', companies).map((response: Response) => response.json());
   }
+  addAuction(auction: Auctions) {
+    return this.http.post(this.companyEndpoint + 'companies/addauction?date=' + auction.closeDate + '&description=' + auction.description + '&jwt=' + this.getjwt() + '&mainColor=' + auction.mainColor + '&name=' + auction.name + '&price=' + auction.price + '&secundaryColor=' + auction.secundaryColor + '&size=' + auction.size + '&type=' + auction.type, '').map((response: Response) => response.json());
+  }
   getCompanyProfile() {
     return this.http.get(this.companyEndpoint + 'getCompanyProfile?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
@@ -41,8 +44,6 @@ export class CompanyService {
   selectWinnerOffer(idauctions: string, idoffer: string) {
     return this.http.post(this.companyEndpoint + 'auctionsWinnerOffer/?auctionid=' + idauctions + '?jwt=' + this.getjwt() + '&offerid=' + idoffer, '').map((response: Response) => response.json());
   }
-
-
   getOffers(auctions: Auctions) {
     return this.http.get(this.companyEndpoint + 'offers?jwt=' + this.getjwt()).map((response: Response) => response.json());
   }
