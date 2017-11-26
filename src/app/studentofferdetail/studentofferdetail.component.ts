@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'app-studentofferdetail',
   templateUrl: './studentofferdetail.component.html',
   styleUrls: ['./studentofferdetail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class StudentofferdetailComponent implements OnInit {
 
@@ -47,7 +47,7 @@ export class StudentofferdetailComponent implements OnInit {
       data => {
         console.log(data);
         this.loading = false;
-        this.router.navigate(['/student/myoffers']);
+        this.router.navigate(['/student/studentdetails/']);
       }, error => {
         console.log(error);
         this.loading = false;

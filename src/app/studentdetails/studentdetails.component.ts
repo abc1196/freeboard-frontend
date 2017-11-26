@@ -8,7 +8,7 @@ import {AlertService} from '../services/alert.service';
   selector: 'app-studentdetails',
   templateUrl: './studentdetails.component.html',
   styleUrls: ['./studentdetails.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class StudentdetailsComponent implements OnInit {
   students: Students;

@@ -19,22 +19,24 @@ import {CompanyService} from './services/company.service';
 import {StudentService} from './services/student.service';
 import {TransactionsService} from './services/transaction.service';
 import {TextMaskModule} from 'angular2-text-mask';
-import { HomeComponent } from './home/home.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { StudentprofileComponent } from './studentprofile/studentprofile.component';
-import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
-import { SearchauctionsComponent } from './searchauctions/searchauctions.component';
-import { OffersComponent } from './offers/offers.component';
-import { StudentofferdetailComponent } from './studentofferdetail/studentofferdetail.component';
-import { StudentauctiondetailComponent } from './studentauctiondetail/studentauctiondetail.component';
-import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
-import { CompanyauctiondetailComponent } from './companyauctiondetail/companyauctiondetail.component';
-import { CompanydetailComponent } from './companydetail/companydetail.component';
-import { CompanyofferdetailComponent } from './companyofferdetail/companyofferdetail.component';
-import { AuctionsComponent } from './auctions/auctions.component';
-import { PayresponsepageComponent } from './payresponsepage/payresponsepage.component';
-import { PayformComponent } from './payform/payform.component';
-import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import {HomeComponent} from './home/home.component';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {StudentprofileComponent} from './studentprofile/studentprofile.component';
+import {StudentdetailsComponent} from './studentdetails/studentdetails.component';
+import {SearchauctionsComponent} from './searchauctions/searchauctions.component';
+import {OffersComponent} from './offers/offers.component';
+import {StudentofferdetailComponent} from './studentofferdetail/studentofferdetail.component';
+import {StudentauctiondetailComponent} from './studentauctiondetail/studentauctiondetail.component';
+import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
+import {CompanyauctiondetailComponent} from './companyauctiondetail/companyauctiondetail.component';
+import {CompanydetailComponent} from './companydetail/companydetail.component';
+import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
+import {AuctionsComponent} from './auctions/auctions.component';
+import {PayresponsepageComponent} from './payresponsepage/payresponsepage.component';
+import {PayformComponent} from './payform/payform.component';
+import {FilterPipePipe} from './pipes/filter-pipe.pipe';
+import {StudentmenuComponent} from './studentmenu/studentmenu.component';
+import { StudentexperienceComponent } from './studentexperience/studentexperience.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     AuctionsComponent,
     PayresponsepageComponent,
     PayformComponent,
-    FilterPipePipe
+    FilterPipePipe,
+    StudentmenuComponent,
+    StudentexperienceComponent
   ],
   imports: [
     BrowserModule,

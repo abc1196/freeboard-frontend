@@ -21,7 +21,8 @@ import {CompanydetailComponent} from './companydetail/companydetail.component';
 import {CompanyofferdetailComponent} from './companyofferdetail/companyofferdetail.component';
 import {CompanyprofileComponent} from './companyprofile/companyprofile.component';
 import {AuctionsComponent} from './auctions/auctions.component';
-
+import {StudentmenuComponent} from './studentmenu/studentmenu.component';
+import {StudentexperienceComponent} from './studentexperience/studentexperience.component';
 import {PayformComponent} from './payform/payform.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home/welcome', pathMatch: 'full'},
@@ -41,12 +42,17 @@ const routes: Routes = [
   {
     path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
       {path: '', redirectTo: '/student/studentdetails', pathMatch: 'full'},
-      {path: 'studentdetails', component: StudentdetailsComponent},
       {path: 'searchauctions', component: SearchauctionsComponent},
-      {path: 'myoffers', component: OffersComponent},
-      {path: 'myoffers/:idoffers', component: StudentofferdetailComponent},
-      {path: 'searchauctions/:id', component: StudentauctiondetailComponent}
-    ]
+      {path: 'searchauctions/:idauctions', component: StudentauctiondetailComponent},
+      {
+        path: 'studentdetails', component: StudentmenuComponent, children: [
+          {path: '', redirectTo: '/student/studentdetails/myoffers', pathMatch: 'full'},
+          {path: 'account', component: StudentdetailsComponent},
+          {path: 'experience', component: StudentexperienceComponent},
+          {path: 'myoffers', component: OffersComponent},
+          {path: 'myoffers/:idoffers', component: StudentofferdetailComponent}]
+
+      }]
   }, {
     path: 'company', component: CompanyprofileComponent, canActivate: [AuthGuard], children: [
       {path: '', redirectTo: '/company/companydetails', pathMatch: 'full'},
