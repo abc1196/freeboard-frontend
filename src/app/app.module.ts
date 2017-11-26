@@ -36,18 +36,11 @@ import {PayresponsepageComponent} from './payresponsepage/payresponsepage.compon
 import {PayformComponent} from './payform/payform.component';
 import {FilterPipePipe} from './pipes/filter-pipe.pipe';
 import {StudentmenuComponent} from './studentmenu/studentmenu.component';
-import { StudentexperienceComponent } from './studentexperience/studentexperience.component';
-<<<<<<< HEAD
-import { TypePipe } from './pipes/type.pipe';
-import { PricePipe } from './pipes/price.pipe';
-=======
+import {StudentexperienceComponent} from './studentexperience/studentexperience.component';
+import {TypePipe} from './pipes/type.pipe';
+import {PricePipe} from './pipes/price.pipe';
 import { CompanymenuComponent } from './companymenu/companymenu.component';
-<<<<<<< HEAD
 import { AddauctionComponent } from './addauction/addauction.component';
-=======
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,17 +68,11 @@ import { AddauctionComponent } from './addauction/addauction.component';
     FilterPipePipe,
     StudentmenuComponent,
     StudentexperienceComponent,
-<<<<<<< HEAD
     CompanymenuComponent,
-    AddauctionComponent
-=======
-<<<<<<< HEAD
+    AddauctionComponent,
     TypePipe,
-    PricePipe
-=======
+    PricePipe,
     CompanymenuComponent
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
   ],
   imports: [
     BrowserModule,

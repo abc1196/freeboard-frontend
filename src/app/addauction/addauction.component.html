@@ -10,24 +10,22 @@
 			<div class="col-sm-6">
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
-					<label for="name">Nombre</label> <input type="text"
-						class="form-control" name="name" [(ngModel)]="auction.name"
+					<label for="name">Nombre de la subasta</label> <input type="text"
+						class="form-control" name="name" [(ngModel)]="model.name"
 						#name="ngModel" required />
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Name is required</div>
 				</div>
-				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
-					<label for="type">Tipo</label> <input type="text"
-						class="form-control" name="type" [(ngModel)]="auction.type"
-						#type="ngModel" required />
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
-						Type is required</div>
+				<div class="form-group">
+					<label for="contain">Tipo</label> <select class="form-control"
+						[(ngModel)]="selectedType" [ngModelOptions]="{standalone: true}">
+						<option *ngFor="let type of types" [value]="type.num">{{type.name}}</option>
+					</select>
 				</div>
 				<div class="form-group"
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 					<label for="price">Precio</label> <input type="text"
-						class="form-control" name="price" [(ngModel)]="auction.price"
+						class="form-control" name="price" [(ngModel)]="model.price"
 						#price="ngModel" required />
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Price is required</div>
@@ -36,7 +34,7 @@
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 					<label for="closeDate">Fecha Límite</label> <input type="text"
 						class="form-control" name="closeDate"
-						[(ngModel)]="auction.closeDate" #closeDate="ngModel" required />
+						[(ngModel)]="model.closeDate" #closeDate="ngModel" required />
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						CloseDate is required</div>
 				</div>
@@ -47,7 +45,7 @@
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 					<label for="description">Descripción</label>
 					<textarea class="form-control" name="description"
-						[(ngModel)]="auction.description" #experience="ngModel" required></textarea>
+						[(ngModel)]="model.description" #experience="ngModel" required></textarea>
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Description is required</div>
 				</div>
@@ -55,7 +53,7 @@
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 					<label for="mainColor">Color principal</label> <input type="text"
 						class="form-control" name="mainColor"
-						[(ngModel)]="auction.mainColor" #mainColor="ngModel" required />
+						[(ngModel)]="model.mainColor" #mainColor="ngModel" required />
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Main color is required</div>
 				</div>
@@ -63,7 +61,7 @@
 					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 					<label for="secundaryColor">Color secundario</label> <input
 						type="text" class="form-control" name="secundaryColor"
-						[(ngModel)]="auction.secundaryColor" #secundaryColor="ngModel"
+						[(ngModel)]="model.secundaryColor" #secundaryColor="ngModel"
 						required />
 					<div *ngIf="f.submitted && !name.valid" class="help-block">First
 						Secundary color is required</div>

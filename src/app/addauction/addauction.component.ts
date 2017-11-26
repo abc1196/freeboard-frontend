@@ -20,6 +20,8 @@ export class AddauctionComponent implements OnInit {
     {num: 4, name: 'Landing Page'},
     {num: 5, name: 'Aplicación Móvil'}
   ];
+  selectedType = 0;
+  model: any = {};
   auction: Auctions;
   loading = false;
   constructor(private route: ActivatedRoute,
@@ -30,10 +32,10 @@ export class AddauctionComponent implements OnInit {
   }
   save() {
     this.loading = true;
-    console.log(this.auction.idauctions);
-    this.companyservice.addAuction(this.auction).subscribe(data => {
-      this.alertService.success('Cambios Guardados');
+    this.companyservice.addAuction(this.model).subscribe(data => {
+      this.alertService.success('Subasta agregada');
       this.loading = false;
+      this.router.navigate(['/company/companydetails/myauctions']);
     },
       (err: HttpErrorResponse) => {
         // The backend returned an unsuccessful response code.
