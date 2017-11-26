@@ -2,12 +2,8 @@
 <div class="wrapper">
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-<<<<<<< HEAD
 		<app-alert></app-alert>
-		<h2 class="form-register-heading">Registro</h2>
-=======
 		<h2 class="form-register-heading">Registro para Empresas</h2>
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
 		<div class="form-group"
 			[ngClass]="{ 'has-error': f.submitted && !name.valid }">
 			<label for="name">Nombre Empresa</label> <input type="text"
@@ -27,13 +23,7 @@
 		<div class="form-group"
 			[ngClass]="{ 'has-error': f.submitted && !phone.valid }">
 			<label for="phone">Telefono</label><input type="text"
-				class="form-control" name="phone" [(ngModel)]="model.phone"
-<<<<<<< HEAD
-				#phone="ngModel" required placeholder="+COUNTRY 1234567890"
-				pattern="(\+[0-9]{1,5}) ([1-9][0-9]{9})" />
-=======
-				#phone="ngModel" required placeholder="+COUNTRY 1234567890" />
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
+				class="form-control" name="phone" [(ngModel)]="model.phone" />
 			<div *ngIf="f.submitted && !phone.valid" class="help-block">Telefono
 				is required</div>
 		</div>

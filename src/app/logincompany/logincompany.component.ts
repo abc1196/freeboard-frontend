@@ -35,7 +35,7 @@ export class LogincompanyComponent implements OnInit {
     this.authenticationService.loginCompany(this.model.email, this.model.password)
       .subscribe(
       data => {
-        this.alertService.success('Login Succesfull');
+        this.alertService.success('Login Succesful');
         this.loading = false;
         this.router.navigate(['/company']);
       }, err => {

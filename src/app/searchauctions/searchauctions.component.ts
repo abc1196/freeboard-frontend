@@ -50,8 +50,6 @@ export class SearchauctionsComponent implements OnInit {
 
   advancedSearch() {
     this.typeFilter= this.types[this.selectedType].name;
-   // this.priceFilter = this.selectedPrice;
-    // console.log('TYPESCRIPT: ' + this.priceFilter);
   }
 
   getAllAuctions() {

@@ -29,21 +29,13 @@ export class RegistercompanyComponent implements OnInit {
       data => {
         // set success message and pass true paramater to persist the message after redirecting to the login page
         this.alertService.success('Registration successful', true);
-<<<<<<< HEAD
-        this.router.navigate(['/logincompany']);
+        this.router.navigate(['/home/logincompany']);
       }, err => {
         // The backend returned an unsuccessful response code.
         // The response body may contain clues as to what went wrong,
         const el = JSON.parse(err._body);
         console.log(el.error.message);
         this.alertService.error(el.error.message);
-=======
-        this.router.navigate(['/home/logincompany']);
-      },
-      error => {
-        this.alertService.error(error);
->>>>>>> branch 'master' of https://github.com/abc1196/freeboard-frontend.git
-        this.loading = false;
       });
   }
 
