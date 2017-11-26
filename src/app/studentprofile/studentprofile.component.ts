@@ -18,6 +18,7 @@ export class StudentprofileComponent implements OnInit {
   }
 
   logout() {
+      this.authenticationService.signOut();
     this.authenticationService.logout();
     this.router.navigate(['']);
   }

@@ -6,48 +6,54 @@ import {CompanyService} from '../services/company.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
-  moduleId: module.id,
-  selector: 'app-logincompany',
-  templateUrl: './logincompany.component.html',
-  styleUrls: ['./logincompany.component.css'],
-  encapsulation: ViewEncapsulation.None
+    moduleId: module.id,
+    selector: 'app-logincompany',
+    templateUrl: './logincompany.component.html',
+    styleUrls: ['./logincompany.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class LogincompanyComponent implements OnInit {
 
-  model: any = {};
-  loading = false;
-  returnUrl: string;
+    model: any = {};
+    loading = false;
+    returnUrl: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService,
-    private companyservice: CompanyService) {}
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService,
+        private companyservice: CompanyService) { }
 
-  ngOnInit() {
-    this.authenticationService.logout();
+    ngOnInit() {
+        this.authenticationService.signOut();
+        this.authenticationService.logout();
 
-  }
+    }
 
-  loginCompany() {
-    this.loading = true;
-    this.authenticationService.loginCompany(this.model.email, this.model.password)
-      .subscribe(
-      data => {
-        this.alertService.success('Login Succesful');
-        this.loading = false;
-        this.router.navigate(['/company']);
-      }, err => {
-        // The backend returned an unsuccessful response code.
-        // The response body may contain clues as to what went wrong,
-        const el = JSON.parse(err._body);
-        console.log(el.error.message);
-        this.alertService.error(el.error.message);
-        this.loading = false;
-      }
-      );
-  }
+    loginCompany() {
+        this.loading = true;
+        this.authenticationService.loginCompany(this.model.email, this.model.password)
+            .subscribe(
+            data => {
+                this.authenticationService.emailLogin(this.model.email, this.model.password).then((user) => {
+                    this.alertService.success('Login Succesful');
+                    this.loading = false;
+                    this.router.navigate(['/company']);
+                }).catch(error => {
+                    this.alertService.error('No se pudo iniciar sesión. Intenta de nuevo.');
+                    this.loading = false;
+                });
+            }, err => {
+                // The backend returned an unsuccessful response code.
+                // The response body may contain clues as to what went wrong,
+                const el = JSON.parse(err._body);
+                console.log(el.error.message);
+                this.alertService.error(el.error.message);
+                this.loading = false;
+            }
+            );
+    }
 
 
 }
