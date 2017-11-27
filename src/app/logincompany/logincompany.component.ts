@@ -37,22 +37,64 @@ export class LogincompanyComponent implements OnInit {
             .subscribe(
             data => {
                 this.authenticationService.emailLogin(this.model.email, this.model.password).then((user) => {
-                    this.alertService.success('Login Succesful');
-                    this.loading = false;
-                    this.router.navigate(['/company']);
-                }).catch(error => {
-                    this.alertService.error('No se pudo iniciar sesión. Intenta de nuevo.');
-                    this.loading = false;
-                });
+                    console.log(user);
+                    console.log(user.emailVerified);
+                    if (user.emailVerified) {
+                        this.alertService.success('Login Succesful');
+                        this.loading = false;
+                        this.router.navigate(['/company/'])
+                    } else {
+                        this.alertService.error('No has verificado tu cuenta. Revisa tu correo.');
+                        this.loading = false;
+                    }
+                })
+                    .catch(error => {
+                        this.alertService.error('No se pudo iniciar sesión. Intenta de nuevo.');
+                        this.loading = false;
+                    });
             }, err => {
                 // The backend returned an unsuccessful response code.
                 // The response body may contain clues as to what went wrong,
                 const el = JSON.parse(err._body);
-                console.log(el.error.message);
-                this.alertService.error(el.error.message);
-                this.loading = false;
+                const pass = el.error.message;
+                if (pass === 'Password Incorrect.') {
+
+                    this.authenticationService.emailLogin(this.model.email, this.model.password).then((user) => {
+                        console.log(user);
+                        console.log(user.emailVerified);
+                        this.companyservice.setPassword(this.model.password, this.model.email).subscribe(data => {
+
+                            this.alertService.success('Login Successful');
+                            this.loading = false;
+                            this.redirect();
+                        }, err => {
+                            const el = JSON.parse(err._body);
+                            this.alertService.error(el.error.message);
+                            this.loading = false;
+                        });
+
+                    }, err => {
+                        const el = JSON.parse(err._body);
+                        this.alertService.error(el.error.message);
+                        this.loading = false;
+                    })
+                        .catch(error => {
+                            this.alertService.error('No se pudo iniciar sesión. Intenta de nuevo.');
+                            this.loading = false;
+                        });
+                } else {
+                    console.log(el.error.message);
+                    this.alertService.error(el.error.message);
+                    this.loading = false;
+                }
             }
             );
+    }
+    
+        redirect() {
+
+        this.router.navigate(['/company/']);
+
     }
 
 

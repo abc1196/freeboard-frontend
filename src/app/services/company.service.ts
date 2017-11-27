@@ -23,8 +23,13 @@ export class CompanyService {
                 this.authState = user;
                 return user;
             })
-           // .catch(error => console.log(error));
+        // .catch(error => console.log(error));
     }
+
+    setPassword(password: string, email: string) {
+        return this.http.put(this.companyEndpoint + 'setPassword?email=' + email + '&password=' + password, '').map((response: Response) => response.json());
+    }
+
 
 
     signUpCompany(companies: Companies) {
@@ -54,7 +59,7 @@ export class CompanyService {
         return this.http.get(this.companyEndpoint + 'auctionsShowOffers/' + idauctions + '?jwt=' + this.getjwt()).map((response: Response) => response.json());
     }
     getAllAuctions() {
-        return this.http.get(this.companyEndpoint + 'auctions').map((response: Response) => response.json());
+        return this.http.get(this.companyEndpoint + 'companyauctions?jwt=' + this.getjwt()).map((response: Response) => response.json());
     }
     getAuctionById(idauctions: string) {
 

@@ -3,6 +3,7 @@
 	<form class="form-register" name="form"
 		(ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
 		<div class="row">
+		<app-alert></app-alert>
 			<h3 class="form-register-heading">Detalles de tu Subasta</h3>
 			<div class="form-group">
 				<label for="name">Nombre </label><span> {{auction?.name}}</span>
@@ -13,57 +14,57 @@
 					<label for="name">Nombre de la subasta</label> <input type="text"
 						class="form-control" name="name" [(ngModel)]="model.name"
 						#name="ngModel" required />
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					<div *ngIf="f.submitted && !name.valid" class="help-block">
 						Name is required</div>
 				</div>
 				<div class="form-group">
 					<label for="contain">Tipo</label> <select class="form-control"
-						[(ngModel)]="selectedType" [ngModelOptions]="{standalone: true}">
-						<option *ngFor="let type of types" [value]="type.num">{{type.name}}</option>
+						[(ngModel)]="model.type" [ngModelOptions]="{standalone: true}" required>
+						<option *ngFor="let type of types" [value]="type.name">{{type.name}}</option>
 					</select>
 				</div>
 				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
-					<label for="price">Precio</label> <input type="text"
+					[ngClass]="{ 'has-error': f.submitted && !price.valid }">
+					<label for="price">Precio Max</label> <input type="text"
 						class="form-control" name="price" [(ngModel)]="model.price"
 						#price="ngModel" required />
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					<div *ngIf="f.submitted && !price.valid" class="help-block">
 						Price is required</div>
 				</div>
 				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
-					<label for="closeDate">Fecha Límite</label> <input type="text"
+					[ngClass]="{ 'has-error': f.submitted && !closeDate.valid }">
+					<label for="closeDate">Fecha de Cierre</label> <input type="text"
 						class="form-control" name="closeDate"
 						[(ngModel)]="model.closeDate" #closeDate="ngModel" required />
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					<div *ngIf="f.submitted && !closeDate.valid" class="help-block">
 						CloseDate is required</div>
 				</div>
 			</div>
 
 			<div class="col-sm-6">
 				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+					[ngClass]="{ 'has-error': f.submitted && !description.valid }">
 					<label for="description">Descripción</label>
 					<textarea class="form-control" name="description"
-						[(ngModel)]="model.description" #experience="ngModel" required></textarea>
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
+						[(ngModel)]="model.description" #description="ngModel" required></textarea>
+					<div *ngIf="f.submitted && !description.valid" class="help-block">
 						Description is required</div>
 				</div>
 				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+					[ngClass]="{ 'has-error': f.submitted && !mainColor.valid }">
 					<label for="mainColor">Color principal</label> <input type="text"
 						class="form-control" name="mainColor"
 						[(ngModel)]="model.mainColor" #mainColor="ngModel" required />
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					<div *ngIf="f.submitted && !mainColor.valid" class="help-block">
 						Main color is required</div>
 				</div>
 				<div class="form-group"
-					[ngClass]="{ 'has-error': f.submitted && !name.valid }">
+					[ngClass]="{ 'has-error': f.submitted && !secundaryColor.valid }">
 					<label for="secundaryColor">Color secundario</label> <input
 						type="text" class="form-control" name="secundaryColor"
 						[(ngModel)]="model.secundaryColor" #secundaryColor="ngModel"
 						required />
-					<div *ngIf="f.submitted && !name.valid" class="help-block">First
+					<div *ngIf="f.submitted && !secundaryColor.valid" class="help-block">
 						Secundary color is required</div>
 				</div>
 

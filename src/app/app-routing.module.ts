@@ -46,21 +46,6 @@ const routes: Routes = [
             { path: '**', redirectTo: '' }
         ]
     },
-
-    { path: '', redirectTo: '/home/welcome', pathMatch: 'full' },
-    {
-        path: 'home', component: HomeComponent, children: [
-            { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-            { path: 'welcome', component: WelcomeComponent },
-            { path: 'loginstudent', component: LoginstudentComponent },
-            { path: 'registerstudent', component: RegisterstudentComponent },
-            { path: 'logincompany', component: LogincompanyComponent },
-            { path: 'registercompany', component: RegistercompanyComponent },
-            { path: 'payform', component: PayformComponent },
-            // otherwise redirect to welcome
-            { path: '**', redirectTo: '' }
-        ]
-    },
     {
         path: 'student', component: StudentprofileComponent, canActivate: [AuthGuard], children: [
             { path: '', redirectTo: '/student/welcomestudent', pathMatch: 'full' },

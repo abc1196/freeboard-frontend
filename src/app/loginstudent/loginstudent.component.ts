@@ -91,7 +91,7 @@ export class LoginstudentComponent implements OnInit {
     }
     redirect() {
 
-        this.router.navigate(['/student/searchauctions']);
+        this.router.navigate(['/student/']);
 
     }
 }

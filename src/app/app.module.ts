@@ -46,69 +46,71 @@ import {CompanymenuComponent} from './companymenu/companymenu.component';
 import {AddauctionComponent} from './addauction/addauction.component';
 import {LandingstudentComponent} from './landingstudent/landingstudent.component';
 import {LandingcompanyComponent} from './landingcompany/landingcompany.component';
+import {ForgotpasswordComponent} from './forgotpassword/forgotpassword.component';
+
 // Must export the config
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBQ07J9Du46aeF4OjdCw1Vu0KIinVHxifI',
-  authDomain: 'cloud-computing-freeboard.firebaseapp.com',
-  databaseURL: 'https://cloud-computing-freeboard.firebaseio.com',
-  projectId: 'cloud-computing-freeboard',
-  storageBucket: '',
-  messagingSenderId: '859563682366'
+    apiKey: 'AIzaSyBQ07J9Du46aeF4OjdCw1Vu0KIinVHxifI',
+    authDomain: 'cloud-computing-freeboard.firebaseapp.com',
+    databaseURL: 'https://cloud-computing-freeboard.firebaseio.com',
+    projectId: 'cloud-computing-freeboard',
+    storageBucket: '',
+    messagingSenderId: '859563682366'
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    AlertComponent,
-    LoginstudentComponent,
-    LogincompanyComponent,
-    RegisterstudentComponent,
-    RegistercompanyComponent,
-    HomeComponent,
-    WelcomeComponent,
-    StudentprofileComponent,
-    StudentdetailsComponent,
-    SearchauctionsComponent,
-    OffersComponent,
-    StudentofferdetailComponent,
-    StudentauctiondetailComponent,
-    CompanyprofileComponent,
-    CompanyauctiondetailComponent,
-    CompanydetailComponent,
-    CompanyofferdetailComponent,
-    AuctionsComponent,
-    PayresponsepageComponent,
-    PayformComponent,
-    FilterPipePipe,
-    StudentmenuComponent,
-    StudentexperienceComponent,
-    CompanymenuComponent,
-    AddauctionComponent,
-    TypePipe,
-    PricePipe,
-    CompanymenuComponent,
-    LandingstudentComponent,
-    LandingcompanyComponent,
-
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
-    TextMaskModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
-  ],
-  providers: [AuthGuard,
-    AlertService,
-    AuthenticationService,
-    CompanyService,
-    StudentService,
-    TransactionsService,
-    GoogleAnalyticsEventsService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        RegisterComponent,
+        AlertComponent,
+        LoginstudentComponent,
+        LogincompanyComponent,
+        RegisterstudentComponent,
+        RegistercompanyComponent,
+        HomeComponent,
+        WelcomeComponent,
+        StudentprofileComponent,
+        StudentdetailsComponent,
+        SearchauctionsComponent,
+        OffersComponent,
+        StudentofferdetailComponent,
+        StudentauctiondetailComponent,
+        CompanyprofileComponent,
+        CompanyauctiondetailComponent,
+        CompanydetailComponent,
+        CompanyofferdetailComponent,
+        AuctionsComponent,
+        PayresponsepageComponent,
+        PayformComponent,
+        FilterPipePipe,
+        StudentmenuComponent,
+        StudentexperienceComponent,
+        CompanymenuComponent,
+        AddauctionComponent,
+        TypePipe,
+        PricePipe,
+        CompanymenuComponent,
+        LandingstudentComponent,
+        LandingcompanyComponent,
+        ForgotpasswordComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        TextMaskModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
+    ],
+    providers: [AuthGuard,
+        AlertService,
+        AuthenticationService,
+        CompanyService,
+        StudentService,
+        TransactionsService,
+        GoogleAnalyticsEventsService],
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

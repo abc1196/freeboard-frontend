@@ -17,15 +17,19 @@ export class ForgotpasswordComponent implements OnInit {
     }
 
     sendPasswordEmail() {
-        this.loading=true;
+        this.loading = true;
+        let email = false;
         this.authenticationService.sendPasswordEmail(this.model.email).then((message) => {
 
             this.alertService.success(message);
-        }).catch(function(error) {
+        }).catch(err => {
+            email = true;
+            console.log(email);
             this.alertService.error('No se pudo enviar correo. Intenta de nuevo.');
         });
-        this.loading=false;
+        this.loading = false;
 
     }
+
 
 }

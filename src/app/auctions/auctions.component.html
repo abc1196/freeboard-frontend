@@ -10,7 +10,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
-				<th>Precio</th>
+				<th>Precio Max</th>
 				<th>Tipo</th>
 				<th>Fecha</th>
 				<th>Acción</th>
@@ -20,7 +20,7 @@
 			<td [routerLink]="['../myauctions/', auction.idauctions]"><a>{{auction.idauctions}}</a>
 			</td>
 			<td>{{auction.name}}</td>
-			<td>{{auction.price | currency:'COP':true:'1.2-2'}}</td>
+			<td>{{auction.price | currency:'USD':true:'1.2-2'}}</td>
 			<td>{{auction.type}}</td>
 			<td>{{auction.closeDate}}</td>
 			<td (click)="deleteAuction(auction.idauctions) "
@@ -29,4 +29,5 @@
 		</tr>
 	</table>
 
+	<div *ngIf="( auctions.length === 0)">Aún no tienes subastas.</div>
 </div>
